@@ -12,7 +12,7 @@ $_SESSION['user_name'] = $user_name;
 if (isset($_POST['submit'])) 
 {
     require '../include/health_supplement/session_health.php';
-    // require '../include/database/health_supplement.php';
+    require '../include/database/health_supplement.php';
     header("location:./preview.php");
 }
 

@@ -12,7 +12,7 @@ $_SESSION['user_name'] = $user_name;
 if (isset($_POST['submit'])) 
 {
     require '../include/full_dossier/session_full.php';
-    // require '../include/database/full_Mysql.php';
+    require '../include/database/full_Mysql.php';
     header("location:./preview.php");
 }
 require '../../include/layout/header_form.php';

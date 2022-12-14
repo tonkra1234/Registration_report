@@ -18,6 +18,34 @@ $sql = "SELECT * FROM $type WHERE id=$id";
 $result = mysqli_query ($conn, $sql);
 $data = $result->fetch_assoc();
 
+if (isset($_POST['submit'])) 
+{
+    if($type === "fast_track"){
+        require '../include/fast_track/session_fast.php';
+        require '../include/database/edit/fast_edit_Mysql.php';
+    }
+
+    elseif ($type === "full_track") {
+        require '../include/full_dossier/session_full.php';
+        require '../include/database/edit/full_edit_Mysql.php';
+    } 
+
+    elseif ($type === "health_supplement") {
+        require '../include/health_supplement/session_health.php';
+        require '../include/database/edit/health_edit_Mysql.php';
+    } 
+    elseif ($type === "follow_up") {
+        require '../include/follow_up_assessment/session_follow.php';
+        require '../include/database/edit/follow_edit_Mysql.php';
+    } 
+    elseif ($type === "post_approval") {
+        require '../include//post_approval_assessment/session_post.php';
+        require '../include/database/edit/post_edit_Mysql.php';
+    } 
+
+    header("location:./table.php?message=submit");
+}
+
 require '../include/layout/header.php';
 ?>
 
@@ -29,93 +57,95 @@ require '../include/layout/header.php';
             <div class="card-header text-center">
                 <?php echo $data['id'] ;?>
             </div>
-            <div class="card-body">
-                <table class="table table-bordered table-hover">
-                    <tbody>
-                        <tr>
-                            <th class="w-50 text-center align-middle">Registration type</th>
-                            <td class="w-50 text-center">
-                                <select class="form-select" aria-label="Default select example" id="Registration_Type"
-                                    name="Registration_Type" required>
-                                    <option value="<?php echo $data['Registration_Type'] ;?>">
-                                        <?php echo $data['Registration_Type'] ;?></option>
-                                    <option value="Expedited Registration">Expedited Registration
-                                    </option>
-                                    <option value="Abridged Registration">Abridged Registration
-                                    </option>
-                                    <option value="Company Recognition">Company Recognition</option>
-                                    <option value="Renewal Registration">Renewal Registration
-                                    </option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th class="w-50 text-center align-middle">Dossier ID</th>
-                            <td class="w-50 text-center"><input type="text" class="form-control" id="Dossier_ID"
-                                    name="Dossier_ID" value="<?php echo $data['Dossier_ID'];?>" required></td>
-                        </tr>
-                        <tr>
-                            <th class="w-50 text-center align-middle">Assessor Name</th>
-                            <td class="w-50 text-center"><input type="text" class="form-control" id="Assesso_Name"
-                                    name="Assesso_Name" value="<?php echo $data['Assesso_Name'];?>" required></td>
-                        </tr>
-                        <tr>
-                            <th class="w-50 text-center align-middle">Date of assessment</th>
-                            <td class="w-50 text-center"><input type="date" class="form-control" id="date_fast"
-                                    name="date_fast" value="<?php echo $data['Date_fast'];?>" required></td>
-                        </tr>
-                        <tr>
-                            <th class="w-50 text-center align-middle">Generic name</th>
-                            <td class="w-50 text-center"><input type="text" class="form-control" id="Generic_name"
-                                    name="Generic_name" value="<?php echo $data['Generic_name'];?>" required></td>
-                        </tr>
-                        <tr>
-                            <th class="w-50 text-center align-middle">Brand name</th>
-                            <td class="w-50 text-center"><input type="text" class="form-control" id="Brand_name"
-                                    name="Brand_name" value="<?php echo $data['Brand_name'];?>" required></td>
-                        </tr>
-                        <tr>
-                            <th class="w-50 text-center align-middle">Strength</th>
-                            <td class="w-50 text-center"><input type="text" class="form-control" id="Strength"
-                                    name="Strength" value="<?php echo $data['Strength'];?>" required></td>
-                        </tr>
-                        <tr>
-                            <th class="w-50 text-center align-middle">Manufacturer</th>
-                            <td class="w-50 text-center"><input type="text" class="form-control" id="Manufacturer"
-                                    name="Manufacturer" value="<?php echo $data['Manufacturer'];?>" required></td>
-                        </tr>
-                        <tr>
-                            <th class="w-50 text-center align-middle">Observation</th>
-                            <td class="w-50"><textarea class="form-control" id="Observation" rows="10"
-                                    name="Observation" required><?php echo $data['Observation'];?></textarea></td>
-                        </tr>
-                        <tr>
-                            <th class="w-50 text-center align-middle">Inference</th>
-                            <td class="w-50"><textarea class="form-control" id="Inference" rows="10" name="Inference"
-                                    required><?php echo $data['Inference'];?></textarea>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th class="w-50 text-center align-middle">Status</th>
-                            <td class="w-50 text-center">
-                                <select class="form-select" aria-label="Show_status" id="Show_status" name="Show_status"
-                                    required>
-                                    <option value="<?php echo $data['Show_status'] ;?>">
-                                        <?php echo $data['Show_status'] ;?></option>
-                                    <option value="Approval">Approval</option>
-                                    <option value="Reject">Reject</option>
-                                    <option value="Waiting">Waiting</option>
-                                </select>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="card-footer text-muted row">
-                <div class="col-12 d-grid">
-                    <a type="button" class="btn btn-warning" href="">Save</a>
+            <form class="" method="post">
+                <div class="card-body">
+                    <table class="table table-bordered table-hover">
+                        <tbody>
+                            <tr>
+                                <th class="w-50 text-center align-middle">Registration type</th>
+                                <td class="w-50 text-center">
+                                    <select class="form-select" aria-label="Default select example"
+                                        id="Registration_Type" name="Registration_Type">
+                                        <option value="<?php echo $data['Registration_Type'] ;?>">
+                                            <?php echo $data['Registration_Type'] ;?></option>
+                                        <option value="Expedited Registration">Expedited Registration
+                                        </option>
+                                        <option value="Abridged Registration">Abridged Registration
+                                        </option>
+                                        <option value="Company Recognition">Company Recognition</option>
+                                        <option value="Renewal Registration">Renewal Registration
+                                        </option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="w-50 text-center align-middle">Dossier ID</th>
+                                <td class="w-50 text-center"><input type="text" class="form-control" id="Dossier_ID"
+                                        name="Dossier_ID" value="<?php echo $data['Dossier_ID'];?>"></td>
+                            </tr>
+                            <tr>
+                                <th class="w-50 text-center align-middle">Assessor Name</th>
+                                <td class="w-50 text-center"><input type="text" class="form-control" id="Assesso_Name"
+                                        name="Assesso_Name" value="<?php echo $data['Assesso_Name'];?>"></td>
+                            </tr>
+                            <tr>
+                                <th class="w-50 text-center align-middle">Date of assessment</th>
+                                <td class="w-50 text-center"><input type="date" class="form-control" id="date_fast"
+                                        name="date_fast" value="<?php echo $data['Date_fast'];?>"></td>
+                            </tr>
+                            <tr>
+                                <th class="w-50 text-center align-middle">Generic name</th>
+                                <td class="w-50 text-center"><input type="text" class="form-control" id="Generic_name"
+                                        name="Generic_name" value="<?php echo $data['Generic_name'];?>"></td>
+                            </tr>
+                            <tr>
+                                <th class="w-50 text-center align-middle">Brand name</th>
+                                <td class="w-50 text-center"><input type="text" class="form-control" id="Brand_name"
+                                        name="Brand_name" value="<?php echo $data['Brand_name'];?>"></td>
+                            </tr>
+                            <tr>
+                                <th class="w-50 text-center align-middle">Strength</th>
+                                <td class="w-50 text-center"><input type="text" class="form-control" id="Strength"
+                                        name="Strength" value="<?php echo $data['Strength'];?>"></td>
+                            </tr>
+                            <tr>
+                                <th class="w-50 text-center align-middle">Manufacturer</th>
+                                <td class="w-50 text-center"><input type="text" class="form-control" id="Manufacturer"
+                                        name="Manufacturer" value="<?php echo $data['Manufacturer'];?>"></td>
+                            </tr>
+                            <tr>
+                                <th class="w-50 text-center align-middle">Observation</th>
+                                <td class="w-50"><textarea class="form-control" id="Observation" rows="10"
+                                        name="Observation"><?php echo $data['Observation'];?></textarea></td>
+                            </tr>
+                            <tr>
+                                <th class="w-50 text-center align-middle">Inference</th>
+                                <td class="w-50"><textarea class="form-control" id="Inference" rows="10"
+                                        name="Inference"><?php echo $data['Inference'];?></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="w-50 text-center align-middle">Status</th>
+                                <td class="w-50 text-center">
+                                    <select class="form-select" aria-label="Show_status" id="Show_status"
+                                        name="Show_status">
+                                        <option value="<?php echo $data['Show_status'] ;?>">
+                                            <?php echo $data['Show_status'] ;?></option>
+                                        <option value="Approval">Approval</option>
+                                        <option value="Reject">Reject</option>
+                                        <option value="Waiting">Waiting</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-            </div>
+                <div class="card-footer text-muted row">
+                    <div class="col-12 d-grid">
+                        <button type="submit" name='submit' class="btn btn-warning">Save</button>
+                    </div>
+                </div>
+            </form>
             <?php elseif($type === "full_track") : ?>
             <div class="card-header text-center">
                 <?php echo $data['id'] ;?>
@@ -126,8 +156,7 @@ require '../include/layout/header.php';
                     <div class="card-body">
                         <div class="mb-3">
                             <label for="Show_status" class="form-label">Status</label>
-                            <select class="form-select" aria-label="Show_status" id="Show_status" name="Show_status"
-                                required>
+                            <select class="form-select" aria-label="Show_status" id="Show_status" name="Show_status">
                                 <option value="<?php echo $data['Show_status'] ;?>"><?php echo $data['Show_status'] ;?>
                                 </option>
                                 <option value="Approval">Approval</option>
@@ -720,12 +749,10 @@ require '../include/layout/header.php';
                     </div>
 
                     <div class="d-grid">
-                        <button type="submit" name='submit' class="btn btn-warning">Submit</button>
+                        <button type="submit" name='submit' class="btn btn-warning">Save</button>
                     </div>
                 </div>
             </div>
-
-
         </form>
         <?php elseif($type === "post_approval") : ?>
         <div class="card-header text-center">
@@ -816,7 +843,7 @@ require '../include/layout/header.php';
                     </div>
 
                     <div class="d-grid">
-                        <button type="submit" name='submit' class="btn btn-warning">Submit</button>
+                        <button type="submit" name='submit' class="btn btn-warning">Save</button>
                     </div>
                 </div>
             </div>
@@ -824,7 +851,6 @@ require '../include/layout/header.php';
         </form>
 
         <?php endif; ?>
-
     </div>
 
 </div>
