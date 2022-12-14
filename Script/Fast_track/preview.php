@@ -1,15 +1,15 @@
 <?php
-require("../fpdf/fpdf.php");
+require("../../fpdf/fpdf.php");
 
 session_start();
-require '../include/fast_track/session_get_fast.php';
+require '../../include/fast_track/session_get_fast.php';
 
 $pdf=new FPDF();
 $pdf->AddPage('L');
   
 $pdf->SetFont('Arial','',12);
 
-$image1 = "../public/image/logo.png";
+$image1 = "../../public/image/logo.png";
 
 // Header
 $pdf->cell(30,30,$pdf->Image($image1, $pdf->GetX()+2, $pdf->GetY()+2, 25),1,0);
@@ -19,10 +19,10 @@ $pdf->cell(61,7.5,'Effective Date',1,0);
 $pdf->cell(61,7.5,'Review Date',1,0);
 $pdf->cell(61,7.5,'Version No.',1,1);
 $pdf->SetX(40);
-$pdf->cell(61,7.5,'DRA-F-D2-01-02',1,0);
+$pdf->cell(61,7.5,'DRA-F-D1-01-13',1,0);
 $pdf->cell(61,7.5,'27-09-2022',1,0);
 $pdf->cell(61,7.5,'27-09-2024',1,0);
-$pdf->cell(61,7.5,'06',1,0);
+$pdf->cell(61,7.5,'00',1,0);
 
 // Information
 
@@ -34,7 +34,11 @@ $pdf->SetFont('Arial','',12);
 $pdf->cell(137,10,'Registration Type: '.$Registration_Type,1,0,'L');
 $pdf->cell(137,10,'Dossier ID: '.$Dossier_ID,1,1,'L');
 $pdf->cell(137,10,'Assessor Name: '.$Assesso_Name,1,0,'L');
-$pdf->cell(137,10,'Date of Assessment: '.$date_fast,1,2,'L');
+$pdf->cell(137,10,'Date of Assessment: '.$date_fast,1,1,'L');
+$pdf->cell(137,10,'Generic_name: '.$Generic_name,1,0,'L');
+$pdf->cell(137,10,'Brand_name: '.$Brand_name,1,1,'L');
+$pdf->cell(137,10,'Strength: '.$Strength,1,0,'L');
+$pdf->cell(137,10,'Manufacturer: '.$Manufacturer,1,2,'L');
 
 // Observation
 $pdf->Ln('5');

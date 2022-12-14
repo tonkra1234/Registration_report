@@ -1,7 +1,7 @@
 <?php
 
-$Registration_Type = $_SESSION['Registration_Type'];
-$_SESSION['Registration_Type'] = $Registration_Type;
+$Show_status = $_SESSION['Show_status'];
+$_SESSION['Show_status'] = $Show_status;
 
 $Dossier_ID = $_SESSION['Dossier_ID'];
 $_SESSION['Dossier_ID'] = $Dossier_ID;
@@ -24,12 +24,22 @@ $_SESSION['Strength'] = $Strength;
 $Manufacturer = $_SESSION['Manufacturer'];
 $_SESSION['Manufacturer'] = $Manufacturer;
 
-$Observation = $_SESSION['Observation'];
-$_SESSION['Observation'] = $Observation;
+$Communication_round = $_SESSION['Communication_round'];
+$_SESSION['Communication_round'] = $Communication_round;
+
+$Missing_documents = $_SESSION['Missing_documents'];
+$_SESSION['Missing_documents'] = $Missing_documents;
+
+$Query_responses = $_SESSION['Query_responses'];
+$_SESSION['Query_responses'] = $Query_responses;
 
 $Inference = $_SESSION['Inference'];
 $_SESSION['Inference'] = $Inference;
 
 $Show_status = $_SESSION['Show_status'];
 $_SESSION['Show_status'] = $Show_status;
+
+$Type_of_assessment = $_SESSION['Type_of_assessment'];
+$_SESSION['Type_of_assessment'] = $Type_of_assessment;
+
 ?>

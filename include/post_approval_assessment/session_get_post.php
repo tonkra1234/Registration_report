@@ -1,10 +1,11 @@
 <?php
 
-$Registration_Type = $_SESSION['Registration_Type'];
-$_SESSION['Registration_Type'] = $Registration_Type;
 
 $Dossier_ID = $_SESSION['Dossier_ID'];
 $_SESSION['Dossier_ID'] = $Dossier_ID;
+
+$Type_change = $_SESSION['Type_change'];
+$_SESSION['Type_change'] = $Type_change;
 
 $Assesso_Name = $_SESSION['Assesso_Name'];
 $_SESSION['Assesso_Name'] = $Assesso_Name;
@@ -24,12 +25,20 @@ $_SESSION['Strength'] = $Strength;
 $Manufacturer = $_SESSION['Manufacturer'];
 $_SESSION['Manufacturer'] = $Manufacturer;
 
-$Observation = $_SESSION['Observation'];
-$_SESSION['Observation'] = $Observation;
+$fulfilled_conditions = $_SESSION['fulfilled_conditions'];
+$_SESSION['fulfilled_conditions'] = $fulfilled_conditions;
+
+$Justification = $_SESSION['Justification'];
+$_SESSION['Justification'] = $Justification;
 
 $Inference = $_SESSION['Inference'];
 $_SESSION['Inference'] = $Inference;
 
 $Show_status = $_SESSION['Show_status'];
 $_SESSION['Show_status'] = $Show_status;
+
+$Type_of_assessment = $_SESSION['Type_of_assessment'];
+$_SESSION['Type_of_assessment'] = $Type_of_assessment;
+
+
 ?>
