@@ -49,13 +49,21 @@ if(isset($_POST['submit'])){
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
    </script>
+   <style>
+      body {
+         background-image: url('../public/image/login_back.jpg');
+         background-repeat: no-repeat;
+         background-attachment: fixed;
+         background-size: cover;
+      }
+   </style>
 
 </head>
 <body>
 <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
       <div class="container" style="width: 40%;">
-         <form action="" method="post" class="border rounded-3 p-5">
-            <h2 class="mb-4 fw-normal text-center">Register now</h2>
+         <form action="" method="post" class="border rounded-3 p-5 bg-white shadow">
+            <h2 class="mb-4 fw-normal text-center text-primary">Register now</h2>
             <?php
                if(isset($error)){
                   foreach($error as $error){

@@ -28,47 +28,42 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <link rel="stylesheet" href="../public/css/style.css">
+    <style>
+        #Mynav {
+            background-image: url('../public/image/Head_Web.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
 </head>
 
 <body>
     <div class="shadow">
-        <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+        <nav class="navbar" id="Mynav">
             <div class="container">
-                <div class="d-flex">
-                    <a class="navbar-brand" href="./home.php"><img src="../public/image/logo.png" height="100"
-                            alt="DRA logo" loading="lazy" />
-                    </a>
-                    <div class="d-flex align-items-center">
-                        <div class="d-flex flex-column justify-content-start">
-                            <span class="fs-5 fw-bold" style="color:#003858 ;">Drug</span>
-                            <span class="fs-5 fw-bold" style="color:#003858 ;">Regulatory</span>
-                            <span class="fs-5 fw-bold" style="color:#003858 ;">Authority</span>
+                <div class="d-flex align-items-center">
+                    <div class="d-flex">
+                        <a class="navbar-brand" href="./home.php"><img src="../public/image/logo.png" height="100"
+                                alt="DRA logo" loading="lazy" />
+                        </a>
+                        <div class="d-flex align-items-center">
+                            <div class="d-flex flex-column justify-content-start">
+                                <span class="fs-5 fw-bold" style="color:#003858 ;">Drug</span>
+                                <span class="fs-5 fw-bold" style="color:#003858 ;">Regulatory</span>
+                                <span class="fs-5 fw-bold" style="color:#003858 ;">Authority</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="d-flex flex-column px-3 rounded-3 bg-gradient" style="background-color: #C8E9FC  ;" >
-                    <span class="fs-6 fw-bold" style="color:#003858 ;">Mission</span>
-                    <span class="fs-6" style="color:#003858 ;">Promoting availability of quality, safe and efficacious medicinal products for consumers.</span>
-                    <span class="fs-6 fw-bold" style="color:#003858 ;">Vision</span>
-                    <span class="fs-6" style="color:#003858 ;">The most dynamic, reliable and client-centric model regulatory organization.</span>
-                </div>
-
-                <div class="dropdown text-end">
-                    <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="../public/image/login.png" alt="users" height="50" width="50">
-                    </a>
-                    <ul class="dropdown-menu text-small dropdown-menu-end" aria-labelledby="dropdownUser1">
-                        <li>
-                            <h6 class="dropdown-header">User: <?php echo $user_name;?></h6>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
-                        <li><a class="dropdown-item" href="../Login/logout.php"><i
-                                    class="fa-solid fa-right-from-bracket fs-5 me-2"></i>Sign out</a></li>
-                    </ul>
+                    <div class="d-flex flex-column px-3 rounded-3 bg-gradient"
+                        style="background-color: transparent; width:40vw;">
+                        <span class="fs-5 fst-italic text-center" style="color:#37779C ;"><span
+                                class="fs-5 fst-italic fw-bold" style="color:#37779C ;">" </span>The most dynamic,
+                            reliable
+                            and client-centric model</span>
+                        <span class="fs-5 fst-italic text-end me-5" style="color:#37779C ;">
+                            regulatory organization<span class="fs-5 fst-italic fw-bold" style="color:#37779C ;">
+                                "</span></span>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -122,8 +117,27 @@
                             <li><a class="dropdown-item" href="#">Contact us</a></li>
                         </ul>
                     </li> -->
-                    </ul>
 
+                    </ul>
+                    <div class="d-flex ms-auto me-5">
+                        <div class="dropdown text-end">
+                            <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle"
+                                id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="../public/image/login.png" alt="users" height="50" width="50">
+                            </a>
+                            <ul class="dropdown-menu text-small dropdown-menu-end" aria-labelledby="dropdownUser1">
+                                <li>
+                                    <h6 class="dropdown-header">User: <?php echo $user_name;?></h6>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Profile</a></li>
+                                <li><a class="dropdown-item" href="../Login/logout.php"><i
+                                            class="fa-solid fa-right-from-bracket fs-5 me-2"></i>Sign out</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </nav>
