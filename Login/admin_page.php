@@ -1,6 +1,9 @@
 <?php
 
 @include '../include/database/connection.php';
+session_start();
+$user_name = $_SESSION['user_name'];
+$_SESSION['user_name'] = $user_name;
 
 // Fast track query
 $sql_fast = "SELECT count(*) as number FROM fast_track";
@@ -32,11 +35,12 @@ $total = $data_fast['number']+$data_full['number']+$data_health['number']+$data_
 
 session_start();
 
-if(!isset($_SESSION['admin_name'])){
+if(!isset($_SESSION['user_name'])){
    header('location:login_form.php');
 }
-$query_users = "SELECT * FROM users ";
-$all_users = mysqli_query ($conn, $query_users);
+
+$query_status= "SELECT * FROM status_user ";
+$all_users_status = mysqli_query ($conn, $query_status);
 
 ?>
 
@@ -69,7 +73,7 @@ $all_users = mysqli_query ($conn, $query_users);
             <a class="navbar-brand ms-3" href="#">Drug Regulatory Authority</a>
             <div class="d-flex ms-auto me-5">
                <a class="btn btn-info mx-3" href="./register_form.php" role="button">Registrater</a>
-               <a role="button" class="btn btn-danger" href="logout.php">Logout</a>
+               <a role="button" class="btn btn-danger" href="./logout.php">Logout</a>
             </div>
          </div>
       </nav>
@@ -80,7 +84,7 @@ $all_users = mysqli_query ($conn, $query_users);
                   <img class="rounded-pill" src="../public/image/presentation.jpeg" alt="presentation" height="150">
                   <div class="d-flex flex-column justify-content-start align-self-center ms-5">
                      <div class="text-start text-primary ">
-                        <h1>Hello <?php echo $_SESSION['admin_name'] ?>, Welcome back</h1>
+                        <h1>Hello <?php echo $_SESSION['user_name'] ?>, Welcome back</h1>
                      </div>
                      <div class="">
                         <p class="fs-6">
@@ -105,7 +109,7 @@ $all_users = mysqli_query ($conn, $query_users);
                <div class="bg-gradient bg-white rounded-3 p-3">
                   <h2 class="text-primary mb-3">Number of generated report</h2>
                   <canvas id="report_chart" height="60"></canvas>
-               </div>  
+               </div>
             </div>
             <div class="col-12 mt-5 bg-white bg-gradient rounded-3 p-3">
                <h2 class="text-primary mb-3">All users & Status</h2>
@@ -115,19 +119,31 @@ $all_users = mysqli_query ($conn, $query_users);
                         <th scope="col">No</th>
                         <th scope="col">Name</th>
                         <th scope="col">Email</th>
+                        <th scope="col">Role</th>
                         <th scope="col">Status</th>
                      </tr>
                   </thead>
                   <tbody>
                      <?php
                $No =1;
-               while ($row_fast = mysqli_fetch_array($all_users)){
+               while ($status = mysqli_fetch_array($all_users_status)){
                ?>
                      <tr>
                         <th scope="row"><?php echo $No;?></th>
-                        <td><?php echo $row_fast["name"]; ?></td>
-                        <td><?php echo $row_fast["email"]; ?></td>
-                        <td></td>
+                        <td><?php echo $status["username"]; ?></td>
+                        <td><?php echo $status["email"]; ?></td>
+                        <td><?php echo $status["user_type"]; ?></td>
+                        <td class="text-center align-middle">
+                           <?php if(((array_key_exists("status_u",$status)) ? $status["status_u"] : "" ) === "Active") : ?>
+                           <span class="badge bg-success"><?php echo $status["status_u"]; ?></span></td>
+                        <?php elseif(((array_key_exists("status_u",$status)) ? $status["status_u"] : "" ) === "Inactive") : ?>
+                        <span class="badge bg-danger"><?php echo $status["status_u"]; ?></span></td>
+                        <?php else : ?>
+                        <span
+                           class="badge bg-warning text-dark">N/A</span>
+                        </td>
+                        <?php endif; ?></td>
+                        
                         <?php
                      $No++;
                   }
@@ -143,11 +159,11 @@ $all_users = mysqli_query ($conn, $query_users);
    </div>
    <footer class="p-2 rounded mt-5 bg-white">
       <div class="text-center">
-        <div class="copyright">
-          <p>developed and maintained by <a href="#" target="_blank">DRA</a></p>
-        </div>
+         <div class="copyright">
+            <p>developed and maintained by <a href="#" target="_blank">DRA</a></p>
+         </div>
       </div>
-    </footer>
+   </footer>
    <script>
       const bar_chart = document.getElementById('report_chart');
       var data_fast = <?php echo $data_fast['number']; ?>;
@@ -163,17 +179,17 @@ $all_users = mysqli_query ($conn, $query_users);
             labels: ['Fast track', 'Full dossier', 'Health supplement', 'follow dossier', 'Post dossier'],
             datasets: [{
                label: 'Number of report generated',
-               data: [data_fast,data_full,data_health,data_follow,data_post],
+               data: [data_fast, data_full, data_health, data_follow, data_post],
                backgroundColor: [
-                'rgb(255, 99, 132)',
-                'rgb(54, 162, 235)',
-                'rgb(255, 205, 86)',
-                'rgb(26, 188, 156 )',
-                'rgb(164, 128, 255 )',
-                'rgb(74, 123, 214 )',
-                'rgb(74, 214, 112 )',
-                'rgb(100, 254, 205 )'
-                ],
+                  'rgb(255, 99, 132)',
+                  'rgb(54, 162, 235)',
+                  'rgb(255, 205, 86)',
+                  'rgb(26, 188, 156 )',
+                  'rgb(164, 128, 255 )',
+                  'rgb(74, 123, 214 )',
+                  'rgb(74, 214, 112 )',
+                  'rgb(100, 254, 205 )'
+               ],
                borderWidth: 1
             }]
          },

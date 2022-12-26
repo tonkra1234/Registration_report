@@ -25,7 +25,9 @@ if(isset($_POST['submit'])){
          $error[] = 'password not matched!';
       }else{
          $insert = "INSERT INTO users(name, email, password, user_type, gender) VALUES('$name','$email','$pass','$user_type','$gender')";
+         $insert_user = "INSERT INTO status_user(username ,email, user_type ,status_u) VALUES('$name','$email','$user_type','')";
          mysqli_query($conn, $insert);
+         mysqli_query($conn, $insert_user);
          header('location:login_form.php');
       }
    }
@@ -63,7 +65,7 @@ if(isset($_POST['submit'])){
 <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
       <div class="container" style="width: 40%;">
          <form action="" method="post" class="border rounded-3 p-5 bg-white shadow">
-            <h2 class="mb-4 fw-normal text-center text-primary">Register now</h2>
+            <h1 class="mb-4 fw-bold text-center text-primary">Register now</h1>
             <?php
                if(isset($error)){
                   foreach($error as $error){

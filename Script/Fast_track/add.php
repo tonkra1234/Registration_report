@@ -3,7 +3,7 @@
 session_start();
 
 if(!isset($_SESSION['user_name'])){
-    header('location:../../../../Login/login_form.php');
+    header('location:../../Login/login_form.php');
 }
  
 $user_name = $_SESSION['user_name'];
@@ -11,9 +11,9 @@ $_SESSION['user_name'] = $user_name;
 
 if (isset($_POST['submit'])) 
 {
-    require '../include/fast_track/session_fast.php';
-    require '../include/database/fast_Mysql.php';
-    header("location:./preview.php");
+    require '../../include/fast_track/session_fast.php';
+    require '../../include/database/fast_Mysql.php';
+    header("location:./preview");
 }
 require '../../include/layout/header_form.php';
 ?>
@@ -22,7 +22,7 @@ require '../../include/layout/header_form.php';
                 <div class="container mt-5">
                     <h2 class="text-center my-3 bg-gradient rounded-pill p-2" style="background-color: #76DEFC;">Fast
                         Track Registration</h2>
-                    <form class="" method="post">
+                    <form class="" method="POST">
                         <div class="card">
                             <div class="card-body">
                                 <div class="mb-3">

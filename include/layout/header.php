@@ -1,3 +1,7 @@
+<?php 
+$user_name = $_SESSION['user_name'];
+$_SESSION['user_name'] = $user_name;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -106,24 +110,16 @@
                                 style="font-size: 1.1rem ;">Post
                                 approval</a>
                         </li>
-                        <!-- <li class="nav-item dropdown">
-                        <a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Company
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">Blog</a></li>
-                            <li><a class="dropdown-item" href="#">About Us</a></li>
-                            <li><a class="dropdown-item" href="#">Contact us</a></li>
-                        </ul>
-                    </li> -->
-
+                        <li class="nav-item mx-1">
+                            <a class="nav-link rounded-3" href="../../Drug_repository/script/home/home.php"
+                                style="font-size: 1.1rem ;">Drug Repository</a>
+                        </li>
                     </ul>
                     <div class="d-flex ms-auto me-5">
                         <div class="dropdown text-end">
                             <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle"
                                 id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="../public/image/login.png" alt="users" height="50" width="50">
+                                <img src="../public/image/login.png" alt="users" height="40" width="40">
                             </a>
                             <ul class="dropdown-menu text-small dropdown-menu-end" aria-labelledby="dropdownUser1">
                                 <li>

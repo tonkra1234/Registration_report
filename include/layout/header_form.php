@@ -1,3 +1,7 @@
+<?php 
+$user_name = $_SESSION['user_name'];
+$_SESSION['user_name'] = $user_name;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -108,6 +112,10 @@
                                 style="font-size: 1.1rem ;">Post
                                 approval</a>
                         </li>
+                        <li class="nav-item mx-1">
+                            <a class="nav-link rounded-3" href="../../../Drug_repository/script/home/home.php"
+                                style="font-size: 1.1rem ;">Drug Repository</a>
+                        </li>
                         <!-- <li class="nav-item dropdown">
                         <a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
@@ -124,7 +132,7 @@
                             <div class="dropdown text-end">
                                 <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle"
                                     id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="../../public/image/login.png" alt="users" height="50" width="50">
+                                    <img src="../../public/image/login.png" alt="users" height="40" width="40">
                                 </a>
                                 <ul class="dropdown-menu text-small dropdown-menu-end" aria-labelledby="dropdownUser1">
                                     <li>
@@ -134,7 +142,7 @@
                                         <hr class="dropdown-divider">
                                     </li>
                                     <li><a class="dropdown-item" href="#">Profile</a></li>
-                                    <li><a class="dropdown-item" href="../Login/logout.php"><i
+                                    <li><a class="dropdown-item" href="../../Login/logout.php"><i
                                                 class="fa-solid fa-right-from-bracket fs-5 me-2"></i>Sign out</a></li>
                                 </ul>
                             </div>

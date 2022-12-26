@@ -3,7 +3,7 @@
 session_start();
 
 if(!isset($_SESSION['user_name'])){
-    header('location:../../../../Login/login_form.php');
+    header('location:../../Login/login_form.php');
 }
 
 $user_name = $_SESSION['user_name'];
@@ -11,8 +11,8 @@ $_SESSION['user_name'] = $user_name;
 
 if (isset($_POST['submit'])) 
 {
-    require '../include/post_approval_assessment/session_post.php';
-    require '../include/database/post_Mysql.php';
+    require '../../include/post_approval_assessment/session_post.php';
+    require '../../include/database/post_Mysql.php';
     header("location:./preview.php");
 }
 require '../../include/layout/header_form.php';
