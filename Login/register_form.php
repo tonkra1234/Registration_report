@@ -28,7 +28,7 @@ if(isset($_POST['submit'])){
          $insert_user = "INSERT INTO status_user(username ,email, user_type ,status_u) VALUES('$name','$email','$user_type','')";
          mysqli_query($conn, $insert);
          mysqli_query($conn, $insert_user);
-         header('location:login_form.php');
+         header('location:./admin_page.php');
       }
    }
 

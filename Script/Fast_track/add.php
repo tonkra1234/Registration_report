@@ -13,14 +13,14 @@ if (isset($_POST['submit']))
 {
     require '../../include/fast_track/session_fast.php';
     require '../../include/database/fast_Mysql.php';
-    header("location:./preview");
+    header("location:./preview.php");
 }
 require '../../include/layout/header_form.php';
 ?>
 <div class="container-fluid">
             <div class="col-sm p-3 min-vh-100">
                 <div class="container mt-5">
-                    <h2 class="text-center my-3 bg-gradient rounded-pill p-2" style="background-color: #76DEFC;">Fast
+                    <h2 class="text-center my-3 bg-gradient roundsed-pill p-2" style="background-color: #76DEFC;">Fast
                         Track Registration</h2>
                     <form class="" method="POST">
                         <div class="card">

@@ -13,8 +13,8 @@ if (isset($_POST['submit']))
 {
     require '../../include/post_approval_assessment/session_post.php';
     require '../../include/database/post_Mysql.php';
-    header("location:./preview.php");
 }
+
 require '../../include/layout/header_form.php';
 ?>
 <div class="container-fluid">
@@ -39,8 +39,8 @@ require '../../include/layout/header_form.php';
                                     <label for="Type_of_assessment" class="form-label">Type of assessment</label>
                                     <select class="form-select" aria-label="Type_of_assessment" id="Type_of_assessment"
                                         name="Type_of_assessment" required>
-                                        <option value="Full Dossier Assessment">Full Dossier Assessment</option>
-                                        <option value="Fast Tract Assessment">Fast Track Assessment</option>
+                                        <option value="Pharmaceutical medicine Assessment">Pharmaceutical medicine Assessment</option>
+                                        <option value="Medical device Assessment">Medical device Assessment</option>
                                         <option value="Health Supplement Assessment">Health Supplement Assessment
                                         </option>
                                     </select>
