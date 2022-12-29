@@ -1,3 +1,4 @@
+
 <?php
 
 session_start();
@@ -9,14 +10,16 @@ if(!isset($_SESSION['user_name'])){
 $user_name = $_SESSION['user_name'];
 $_SESSION['user_name'] = $user_name;
 
+require '../../include/layout/header_form.php';
+
 if (isset($_POST['submit'])) 
 {
     require '../../include/post_approval_assessment/session_post.php';
     require '../../include/database/post_Mysql.php';
 }
 
-require '../../include/layout/header_form.php';
 ?>
+
 <div class="container-fluid">
             <div class="col-sm p-3 min-vh-100">
                 

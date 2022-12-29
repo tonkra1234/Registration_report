@@ -5,6 +5,8 @@ session_start();
 if(!isset($_SESSION['user_name'])){
     header('location:../../Login/login_form.php');
 }
+
+require '../../include/layout/header_form.php';
  
 $user_name = $_SESSION['user_name'];
 $_SESSION['user_name'] = $user_name;
@@ -13,10 +15,9 @@ if (isset($_POST['submit']))
 {
     require '../../include/health_supplement/session_health.php';
     require '../../include/database/health_supplement.php';
-    header("location:./preview.php");
+    
 }
 
-require '../../include/layout/header_form.php';
 ?>
 <div class="container-fluid">
             <div class="col-sm p-3 min-vh-100">

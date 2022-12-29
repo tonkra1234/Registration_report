@@ -41,7 +41,14 @@ VALUES ('$Assesso_Name', '$Qualification', '$Dossier_ID',
         )";
 
 if ($conn->query($sql) === TRUE) {
-  echo "<script>alert('New record created successfully')</script>";
+  echo "<script>Swal.fire(
+    'New record created successfully!',
+    'Please, click button to continue!',
+    'success'
+  ).then(function() {
+    window.location = '../table.php';
+  });
+  </script>";
 } else {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
