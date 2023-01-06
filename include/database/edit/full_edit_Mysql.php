@@ -21,7 +21,14 @@ $update = " UPDATE full_track SET Assesso_Name='$Assesso_Name', Qualification='$
                     Summary_Assessment_Report='$Summary_Assessment_Report', Show_status='$Show_status' WHERE id=$id ";
 
 if ($conn->query($update) === TRUE) {
-    echo "Record updated successfully";
+  echo "<script>Swal.fire(
+    'Updated data successfully!',
+    'Please, click button to continue!',
+    'success'
+  ).then(function() {
+    window.location = '../table.php';
+  });
+  </script>";
   } else {
     echo "Error updating record: " . $conn->error;
   }

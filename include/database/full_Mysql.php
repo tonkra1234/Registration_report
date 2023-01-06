@@ -1,6 +1,5 @@
 <?php
 
-include 'connection.php';
 
 $sql = "INSERT INTO full_track (Assesso_Name, Qualification, 
                     Dossier_ID, date_fast, 
