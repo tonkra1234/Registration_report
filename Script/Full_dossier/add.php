@@ -32,9 +32,9 @@ if (isset($_POST['submit']))
                                     <label for="Show_status" class="form-label">Status</label>
                                     <select class="form-select" aria-label="Show_status" id="Show_status"
                                         name="Show_status" required>
-                                        <option value="Approval">Approval</option>
+                                        <option value="Approve">Approve</option>
                                         <option value="Reject">Reject</option>
-                                        <option value="Querying">Querying</option>
+                                        <option value="Query">Query</option>
                                     </select>
                                 </div>
                                 <div class="mb-3">

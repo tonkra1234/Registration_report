@@ -9,6 +9,19 @@ if(!isset($_SESSION['user_name'])){
 $user_name = $_SESSION['user_name'];
 $_SESSION['user_name'] = $user_name;
 
+// variable to store number of rows per page
+$total_records_per_page = 5;   
+
+// update the active page number
+if (isset($_GET['page_no']) && $_GET['page_no']!="") {
+    $page_no = $_GET['page_no'];
+} else {
+    $page_no = 1;
+}
+
+// get the initial page number
+$offset = ($page_no-1) * $total_records_per_page;
+
 
 @include '../include/database/connection.php';
 
@@ -65,7 +78,7 @@ require '../include/layout/header.php';
                                         <td><?php echo $row_fast["Assesso_Name"]; ?></td>
                                         <td><?php echo $row_fast["Date_fast"]; ?></td>
                                         <td class="text-center align-middle">
-                                        <?php if(((array_key_exists("Show_status",$row_fast)) ? $row_fast["Show_status"] : "" ) === "Approval") : ?>
+                                        <?php if(((array_key_exists("Show_status",$row_fast)) ? $row_fast["Show_status"] : "" ) === "Approve") : ?>
                                             <span class="badge bg-success"><?php echo $row_fast["Show_status"] ?></span>
                                         </td>
                                         <?php elseif(((array_key_exists("Show_status",$row_fast)) ? $row_fast["Show_status"] : "" ) === "Reject") : ?>

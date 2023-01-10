@@ -131,9 +131,9 @@ require '../include/layout/header.php';
                                         name="Show_status">
                                         <option value="<?php echo $data['Show_status'] ;?>">
                                             <?php echo $data['Show_status'] ;?></option>
-                                        <option value="Approval">Approval</option>
+                                        <option value="Approve">Approve</option>
                                         <option value="Reject">Reject</option>
-                                        <option value="Waiting">Waiting</option>
+                                        <option value="Query">Query</option>
                                     </select>
                                 </td>
                             </tr>
@@ -159,9 +159,9 @@ require '../include/layout/header.php';
                             <select class="form-select" aria-label="Show_status" id="Show_status" name="Show_status">
                                 <option value="<?php echo $data['Show_status'] ;?>"><?php echo $data['Show_status'] ;?>
                                 </option>
-                                <option value="Approval">Approval</option>
+                                <option value="Approve">Approve</option>
                                 <option value="Reject">Reject</option>
-                                <option value="Waiting">Waiting</option>
+                                <option value="Query">Query</option>
                             </select>
                         </div>
                         <div class="mb-3">
@@ -483,9 +483,9 @@ require '../include/layout/header.php';
                                 required>
                                 <option value="<?php echo $data['Show_status'] ;?>"><?php echo $data['Show_status'] ;?>
                                 </option>
-                                <option value="Approval">Approval</option>
+                                <option value="Approve">Approve</option>
                                 <option value="Reject">Reject</option>
-                                <option value="Waiting">Waiting</option>
+                                <option value="Query">Query</option>
                             </select>
                         </div>
                         <div class="mb-3">
@@ -668,9 +668,9 @@ require '../include/layout/header.php';
                             required>
                             <option value="<?php echo $data['Show_status'] ;?>"><?php echo $data['Show_status'] ;?>
                             </option>
-                            <option value="Approval">Approval</option>
+                            <option value="Approve">Approve</option>
                             <option value="Reject">Reject</option>
-                            <option value="Waiting">Waiting</option>
+                            <option value="Query">Query</option>
                         </select>
                     </div>
                     <div class="mb-3">
@@ -767,9 +767,9 @@ require '../include/layout/header.php';
                             required>
                             <option value="<?php echo $data['Show_status'] ;?>"><?php echo $data['Show_status'] ;?>
                             </option>
-                            <option value="Approval">Approval</option>
+                            <option value="Approve">Approve</option>
                             <option value="Reject">Reject</option>
-                            <option value="Waiting">Waiting</option>
+                            <option value="Query">Query</option>
                         </select>
                     </div>
                     <div class="mb-3">

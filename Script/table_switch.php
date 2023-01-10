@@ -4,9 +4,11 @@
 
 $report = $_POST["title"];
 $month_year = $_POST["month"];
+
 $time  = strtotime($month_year);
 $year = date('Y',$time);
 $month = date('m',$time);
+
 
 ?>
 <?php if($report === "fast_track") : ?>
@@ -47,7 +49,7 @@ $month = date('m',$time);
             <td><?php echo $row_fast["Assesso_Name"]; ?></td>
             <td><?php echo $row_fast["Date_fast"]; ?></td>
             <td class="text-center align-middle">
-                <?php if(((array_key_exists("Show_status",$row_fast)) ? $row_fast["Show_status"] : "" ) === "Approval") : ?>
+                <?php if(((array_key_exists("Show_status",$row_fast)) ? $row_fast["Show_status"] : "" ) === "Approve") : ?>
                 <span class="badge bg-success"><?php echo $row_fast["Show_status"] ?></span></td>
             <?php elseif(((array_key_exists("Show_status",$row_fast)) ? $row_fast["Show_status"] : "" ) === "Reject") : ?>
                 <span class="badge bg-danger"><?php echo $row_fast["Show_status"] ?></span></td>
@@ -110,7 +112,7 @@ $month = date('m',$time);
             <td><?php echo $row_full["Date_fast"]; ?></td>
             <td><?php echo $row_full["Qualification"]; ?></td>
             <td class="text-center align-middle">
-                <?php if(((array_key_exists("Show_status",$row_full)) ? $row_full["Show_status"] : "" ) === "Approval") : ?>
+                <?php if(((array_key_exists("Show_status",$row_full)) ? $row_full["Show_status"] : "" ) === "Approve") : ?>
                 <span class="badge bg-success"><?php echo $row_full["Show_status"] ?></span></td>
             <?php elseif(((array_key_exists("Show_status",$row_full)) ? $row_full["Show_status"] : "" ) === "Reject") : ?>
                 <span class="badge bg-danger"><?php echo $row_full["Show_status"] ?></span></td>
@@ -176,7 +178,7 @@ $month = date('m',$time);
             <td><?php echo $row_follow["Communication_round"]; ?></td>
             <td><?php echo $row_follow["Type_of_assessment"]; ?></td>
             <td class="text-center align-middle">
-                <?php if(((array_key_exists("Show_status",$row_follow)) ? $row_follow["Show_status"] : "" ) === "Approval") : ?>
+                <?php if(((array_key_exists("Show_status",$row_follow)) ? $row_follow["Show_status"] : "" ) === "Approve") : ?>
                 <span class="badge bg-success"><?php echo $row_follow["Show_status"] ?></span></td>
             <?php elseif(((array_key_exists("Show_status",$row_follow)) ? $row_follow["Show_status"] : "" ) === "Reject") : ?>
                 <span class="badge bg-danger"><?php echo $row_follow["Show_status"] ?></span></td>
@@ -232,7 +234,7 @@ $month = date('m',$time);
             <td><?php echo $row_health["supplement_id"]; ?></td>
             <td><?php echo $row_health["Category"]; ?></td>
             <td class="text-center align-middle">
-                <?php if(((array_key_exists("Show_status",$row_health)) ? $row_health["Show_status"] : "" ) === "Approval") : ?>
+                <?php if(((array_key_exists("Show_status",$row_health)) ? $row_health["Show_status"] : "" ) === "Approve") : ?>
                 <span class="badge bg-success"><?php echo $row_health["Show_status"] ?></span></td>
             <?php elseif(((array_key_exists("Show_status",$row_health)) ? $row_health["Show_status"] : "" ) === "Reject") : ?>
                 <span class="badge bg-danger"><?php echo $row_health["Show_status"] ?></span></td>
@@ -260,7 +262,8 @@ $month = date('m',$time);
 <?php
     if($month_year === ""){ 
         $sql = "SELECT * FROM post_approval";
-        $result_post = mysqli_query ($conn, $sql);   
+        $result_post = mysqli_query ($conn, $sql);
+          
     }    
     else{
         $sql = "SELECT * FROM post_approval WHERE MONTH(date_fast) = $month and Year(date_fast) = $year";
@@ -297,7 +300,7 @@ $month = date('m',$time);
             <td><?php echo $row_post["date_fast"]; ?></td>
             <td><?php echo $row_post["Type_of_assessment"]; ?></td>
             <td class="text-center align-middle">
-                <?php if(((array_key_exists("Show_status",$row_post)) ? $row_post["Show_status"] : "" ) === "Approval") : ?>
+                <?php if(((array_key_exists("Show_status",$row_post)) ? $row_post["Show_status"] : "" ) === "Approve") : ?>
                 <span class="badge bg-success"><?php echo $row_post["Show_status"] ?></span></td>
             <?php elseif(((array_key_exists("Show_status",$row_post)) ? $row_post["Show_status"] : "" ) === "Reject") : ?>
                 <span class="badge bg-danger"><?php echo $row_post["Show_status"] ?></span></td>
@@ -321,4 +324,5 @@ $month = date('m',$time);
 
     </tbody>
 </table>
+
 <?php endif; ?>
