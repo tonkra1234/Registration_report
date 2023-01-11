@@ -1,5 +1,5 @@
 <?php
-
+require '../../include/database/connection.php';
 session_start();
 
 if(!isset($_SESSION['user_name'])){
@@ -22,7 +22,7 @@ if (isset($_POST['submit']))
 <div class="container-fluid">
             <div class="col-sm p-3 min-vh-100">
                 <div class="container mt-5">
-                    <h2 class="text-center my-3 bg-gradient rounded-pill p-2" style="background-color: #D698FE ;">Follow
+                    <h2 class="text-center my-3 bg-gradient rounded-pill p-2 border border-3" style="background-color: #D698FE ;">Follow
                         up assessment form</h2>
                     <form class="" method="post">
                         <div class="card">

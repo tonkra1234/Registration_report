@@ -50,7 +50,7 @@ $_SESSION['user_name'] = $user_name;
     </style>
 </head>
 
-<body>
+<body style="background-color:#F4F4F4 ;">
     <div class="shadow">
         <nav class="navbar navbar" id="Mynav">
             <div class="container">
@@ -107,7 +107,7 @@ $_SESSION['user_name'] = $user_name;
                                 supplement</a>
                         </li>
                         <li class="nav-item mx-1">
-                            <a class="nav-link rounded-3" href="#" style="font-size: 1.1rem ;">Medical device</a>
+                            <a class="nav-link rounded-3" href="../medical_device.php" style="font-size: 1.1rem ;">Medical device</a>
                         </li>
                         <li class="nav-item mx-1">
                             <a class="nav-link rounded-3" href="../Follow_up_assessment/add.php"

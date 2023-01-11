@@ -13,9 +13,9 @@ require '../include/layout/header.php';
 ?>
 <div class="container-fluid">
     <div class="col-sm p-3 min-vh-100">
-        <div class="row rounded-pill p-3 m-5 bg-gradient" style="background-color:#70faee ;">
+        <div class="row rounded-pill p-3 m-5 bg-gradient" style="background-color:#11186C  ;">
             <div class="col-12 d-flex align-items-center justify-content-center ms-3">
-                <h3 class="text-dark">Pharmaceutical medicine</h3>
+                <h2 class="text-white fw-bolder">Pharmaceutical medicine</h2>
             </div>
         </div>
 

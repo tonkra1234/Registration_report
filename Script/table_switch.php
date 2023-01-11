@@ -109,7 +109,7 @@ $month = date('m',$time);
             <th scope="row"><?php echo $No;?></th>
             <td><?php echo $row_full["Dossier_ID"]; ?></td>
             <td><?php echo $row_full["Assesso_Name"]; ?></td>
-            <td><?php echo $row_full["Date_fast"]; ?></td>
+            <td><?php echo $row_full["date_fast"]; ?></td>
             <td><?php echo $row_full["Qualification"]; ?></td>
             <td class="text-center align-middle">
                 <?php if(((array_key_exists("Show_status",$row_full)) ? $row_full["Show_status"] : "" ) === "Approve") : ?>
