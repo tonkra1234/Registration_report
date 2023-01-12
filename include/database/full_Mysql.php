@@ -1,7 +1,7 @@
 <?php
 
 
-$sql = "INSERT INTO full_track (Assesso_Name, Qualification, 
+$sql = "INSERT IGNORE INTO full_track (Assesso_Name, Qualification, 
                     Dossier_ID, date_fast, 
                     Application_Form_select, Application_Form_text,
                     Letter_of_Authorization_select, Letter_of_Authorization_text, 
