@@ -12,28 +12,28 @@ $_SESSION['Assesso_Name'] = $Assesso_Name;
 $date_fast = $_POST['date_fast'];
 $_SESSION['date_fast'] = $date_fast;
 
-$Generic_name = $_POST['Generic_name'];
+$Generic_name = mysqli_real_escape_string($conn,$_POST['Generic_name']);
 $_SESSION['Generic_name'] = $Generic_name;
 
-$Brand_name = $_POST['Brand_name'];
+$Brand_name = mysqli_real_escape_string($conn,$_POST['Brand_name']);
 $_SESSION['Brand_name'] = $Brand_name;
 
 $Strength = $_POST['Strength'];
 $_SESSION['Strength'] = $Strength;
 
-$Manufacturer = $_POST['Manufacturer'];
+$Manufacturer = mysqli_real_escape_string($conn,$_POST['Manufacturer']);
 $_SESSION['Manufacturer'] = $Manufacturer;
 
 $Communication_round = $_POST['Communication_round'];
 $_SESSION['Communication_round'] = $Communication_round;
 
-$Missing_documents = $_POST['Missing_documents'];
+$Missing_documents = mysqli_real_escape_string($conn,$_POST['Missing_documents']);
 $_SESSION['Missing_documents'] = $Missing_documents;
 
-$Query_responses = $_POST['Query_responses'];
+$Query_responses = mysqli_real_escape_string($conn,$_POST['Query_responses']);
 $_SESSION['Query_responses'] = $Query_responses;
 
-$Inference = $_POST['Inference'];
+$Inference = mysqli_real_escape_string($conn,$_POST['Inference']);
 $_SESSION['Inference'] = $Inference;
 
 $Show_status = $_POST['Show_status'];

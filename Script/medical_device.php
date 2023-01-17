@@ -24,7 +24,7 @@ require '../include/layout/header.php';
                 <img src="../public/image/device1.jpg" class="card-img-top img-fluid" alt="device1" style="height:15rem;">
                 <div class="card-body">
                     <h6 class="card-title text-center">Full Dossier Evaluation</h6>
-                    <a href="#" class="btn btn-success text-white d-grid">Go to report</a>
+                    <a href="./Medical_full/add.php" class="btn btn-success text-white d-grid">Go to report</a>
                 </div>
             </div>
             <div class="card mx-5" style="width: 18rem;height:18rem;">
@@ -38,7 +38,7 @@ require '../include/layout/header.php';
                 <img src="../public/image/device3.jpeg" class="card-img-top img-fluid" alt="device3" style="height:15rem;">
                 <div class="card-body">
                     <h6 class="card-title text-center">Evaluation renewal</h6>
-                    <a href="#" class="btn btn-success text-white d-grid">Go to report</a>
+                    <a href="./Medical_renewal/add.php" class="btn btn-success text-white d-grid">Go to report</a>
                 </div>
             </div>
         </div>

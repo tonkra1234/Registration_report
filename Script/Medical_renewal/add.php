@@ -13,8 +13,8 @@ $_SESSION['user_name'] = $user_name;
 
 if (isset($_POST['submit'])) 
 {
-    require '../../include/medical_abr/session_abr.php';
-    require '../../include/database/medical_abr_Mysql.php';
+    // require '../../include/medical_abr/session_abr.php';
+    // require '../../include/database/medical_abr_Mysql.php';
 }
 
 ?>
@@ -22,7 +22,7 @@ if (isset($_POST['submit']))
     <div class="col-sm p-3 min-vh-100">
         <div class="container mt-5">
             <h2 class="text-center my-3 bg-gradient rounded-pill p-2 border border-3"
-                style="background-color: #CBCFFF ;">Evaluation of Medical Device Dossiers (Abridged)</h2>
+                style="background-color: #CBCFFF ;">Evaluation of Medical Device Dossiers (Renewal)</h2>
             <form class="" method="POST">
                 <div class="card">
                     <div class="card-body">
@@ -62,6 +62,11 @@ if (isset($_POST['submit']))
                                 name="Name_Applicant_Market" required>
                         </div>
                         <div class="mb-3">
+                            <label for="Registration_Number" class="form-label">Registration Number</label>
+                            <input type="text" class="form-control" id="Registration_Number" name="Registration_Number"
+                                required>
+                        </div>
+                        <div class="mb-3">
                             <label for="Contact_Details" class="form-label">Contact Details</label>
                             <input type="text" class="form-control" id="Contact_Details" name="Contact_Details"
                                 required>
@@ -76,7 +81,15 @@ if (isset($_POST['submit']))
                             <input type="date" class="form-control" id="date_fast" name="date_fast" required>
                         </div>
                         <div class="mb-3">
-                            <h3 for="Part1" class="form-label mt-5">PART A: Administrative Document Requirements</h3>
+                            <label for="Receipt_Number" class="form-label">Receipt number with date</label>
+                            <input type="text" class="form-control" id="Receipt_Number" name="Receipt_Number" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="Email" name="Email" required>
+                        </div>
+                        <div class="mb-3">
+                            <h3 for="Part1" class="form-label mt-5">Document Requirements</h3>
                         </div>
                         <div class="mb-3">
                             <label for="Letter_of_Authorization" class="form-label">1. Dully filled Application form,
@@ -85,63 +98,24 @@ if (isset($_POST['submit']))
                                 name="Letter_of_Authorization" required></textarea>
                         </div>
                         <div class="mb-3">
-                            <label for="Brief" class="form-label">2. Brief Description of the Quality System</label>
-                            <textarea class="form-control" id="Brief" rows="10" name="Brief" required></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label for="Sale_certificate" class="form-label">3. Free sale certificate (If
-                                applicable)</label>
-                            <textarea class="form-control" id="Sale_certificate" rows="10"
-                                name="Sale_certificate"></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label for="Evidences" class="form-label">4. Documentary evidences for Abridged
-                                Registration(WHO prequalified; Refer WHO website or
-                                Registered in one of the referenced SRAs (Listed by WHO))</label>
-                            <textarea class="form-control" id="Evidences" rows="10" name="Evidences"
+                            <label for="Declaration_Letter" class="form-label">2. Declaration Letter from the company
+                                stating that there is no change in all aspects of the registered
+                                product.</label>
+                            <textarea class="form-control" id="Declaration_Letter" rows="10" name="Declaration_Letter"
                                 required></textarea>
                         </div>
                         <div class="mb-3">
-                            <label for="Manufacturing_Details" class="form-label">5. Manufacturing Process
-                                Details</label>
-                            <textarea class="form-control" id="Manufacturing_Details" rows="10"
-                                name="Manufacturing_Details" required></textarea>
+                            <label for="Initial_Registration" class="form-label">3. Copy of Initial Registration
+                                Certificate</label>
+                            <textarea class="form-control" id="Initial_Registration" rows="10"
+                                name="Initial_Registration"></textarea>
                         </div>
                         <div class="mb-3">
-                            <label for="Configurations" class="form-label">6. List of Configurations and/or
-                                components</label>
-                            <textarea class="form-control" id="Configurations" rows="10" name="Configurations"
+                            <label for="Specimen_package" class="form-label">4. Specimen of package, label and insert
+                                where applicable(Compare with the specimen submitted during
+                                the initial registration)</label>
+                            <textarea class="form-control" id="Specimen_package" rows="10" name="Specimen_package"
                                 required></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label for="Sample" class="form-label">7. Sample of Actual Product ( If applicable)</label>
-                            <textarea class="form-control" id="Sample" rows="10" name="Sample"></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label for="Price_structure" class="form-label">8. Price structure (Market price in the
-                                country of origin)</label>
-                            <textarea class="form-control" id="Price_structure" rows="10" name="Price_structure"
-                                required></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <h3 for="Part2" class="form-label mt-5">Part B: Technical Requirements</h3>
-                        </div>
-                        <div class="mb-3">
-                            <label for="Evidence_ABR" class="form-label">1. Evidence to support abridged
-                                registration</label>
-                            <textarea class="form-control" id="Evidence_ABR" rows="10" name="Evidence_ABR"
-                                required></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label for="Device_description" class="form-label">2. Device Description</label>
-                            <textarea class="form-control" id="Device_description" rows="10" name="Device_description"
-                                required></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label for="Certificate_analysis" class="form-label">3. Certificate of analysis or
-                                performance report for at least three batches/lots.</label>
-                            <textarea class="form-control" id="Certificate_analysis" rows="10"
-                                name="Certificate_analysis" required></textarea>
                         </div>
                         <div class="mb-3">
                             <h3 for="Recommendation" class="form-label mt-5">Recommendations from the Evaluator</h3>

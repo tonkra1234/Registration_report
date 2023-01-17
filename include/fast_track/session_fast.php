@@ -9,7 +9,7 @@ $_SESSION['Dossier_ID'] = $Dossier_ID;
 $Assesso_Name = $_POST['Assesso_Name'];
 $_SESSION['Assesso_Name'] = $Assesso_Name;
 
-$Generic_name = $_POST['Generic_name'];
+$Generic_name = mysqli_real_escape_string($conn,$_POST['Generic_name']);
 $_SESSION['Generic_name'] = $Generic_name;
 
 $Brand_name = $_POST['Brand_name'];
@@ -18,16 +18,16 @@ $_SESSION['Brand_name'] = $Brand_name;
 $Strength = $_POST['Strength'];
 $_SESSION['Strength'] = $Strength;
 
-$Manufacturer = $_POST['Manufacturer'];
+$Manufacturer = mysqli_real_escape_string($conn,$_POST['Manufacturer']);
 $_SESSION['Manufacturer'] = $Manufacturer;
 
 $date_fast = $_POST['date_fast'];
 $_SESSION['date_fast'] = $date_fast;
 
-$Observation = $_POST['Observation'];
+$Observation = mysqli_real_escape_string($conn,$_POST['Observation']);
 $_SESSION['Observation'] = $Observation;
 
-$Inference = $_POST['Inference'];
+$Inference = mysqli_real_escape_string($conn,$_POST['Inference']);
 $_SESSION['Inference'] = $Inference;
 
 $Show_status = $_POST['Show_status'];

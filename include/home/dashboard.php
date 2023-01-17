@@ -69,13 +69,13 @@ $sql_follow_q = "SELECT count(*) as number FROM follow_up WHERE Show_status = 'Q
 $result_follow_q = mysqli_query ($conn, $sql_follow_q );
 $data_follow_q = $result_follow_q->fetch_assoc();
 
-$sql_follow_fast = "SELECT count(*) as number FROM follow_up WHERE Type_of_assessment = 'Fast Track Assessment' ";
-$result_follow_fast = mysqli_query ($conn, $sql_follow_fast);
-$data_follow_fast = $result_follow_fast->fetch_assoc();
+$sql_follow_phar = "SELECT count(*) as number FROM follow_up WHERE Type_of_assessment = 'Pharmaceutical medicine Assessment' ";
+$result_follow_phar = mysqli_query ($conn, $sql_follow_phar);
+$data_follow_phar = $result_follow_phar->fetch_assoc();
 
-$sql_follow_full = "SELECT count(*) as number FROM follow_up WHERE Type_of_assessment = 'Full Dossier Assessment' ";
-$result_follow_full = mysqli_query ($conn, $sql_follow_full);
-$data_follow_full = $result_follow_full->fetch_assoc();
+$sql_follow_device = "SELECT count(*) as number FROM follow_up WHERE Type_of_assessment = 'Medical device Assessment' ";
+$result_follow_device = mysqli_query ($conn, $sql_follow_device);
+$data_follow_device = $result_follow_device->fetch_assoc();
 
 $sql_follow_health = "SELECT count(*) as number FROM follow_up WHERE Type_of_assessment = 'Health Supplement Assessment' ";
 $result_follow_health = mysqli_query ($conn, $sql_follow_health);
@@ -99,13 +99,13 @@ $sql_post_q = "SELECT count(*) as number FROM post_approval WHERE Show_status = 
 $result_post_q = mysqli_query ($conn, $sql_post_q );
 $data_post_q = $result_post_q->fetch_assoc();
 
-$sql_post_fast = "SELECT count(*) as number FROM post_approval WHERE Type_of_assessment = 'Fast Track Assessment' ";
-$result_post_fast = mysqli_query ($conn, $sql_post_fast);
-$data_post_fast = $result_post_fast->fetch_assoc();
+$sql_post_phar = "SELECT count(*) as number FROM post_approval WHERE Type_of_assessment = 'Pharmaceutical medicine Assessment' ";
+$result_post_phar = mysqli_query ($conn, $sql_post_phar);
+$data_post_phar = $result_post_phar->fetch_assoc();
 
-$sql_post_full = "SELECT count(*) as number FROM post_approval WHERE Type_of_assessment = 'Full Dossier Assessment' ";
-$result_post_full = mysqli_query ($conn, $sql_post_full);
-$data_post_full = $result_post_full->fetch_assoc();
+$sql_post_device = "SELECT count(*) as number FROM post_approval WHERE Type_of_assessment = 'Medical device Assessment' ";
+$result_post_device = mysqli_query ($conn, $sql_post_device);
+$data_post_device = $result_post_device->fetch_assoc();
 
 $sql_post_health = "SELECT count(*) as number FROM post_approval WHERE Type_of_assessment = 'Health Supplement Assessment' ";
 $result_post_health = mysqli_query ($conn, $sql_post_health);

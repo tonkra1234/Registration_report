@@ -50,12 +50,10 @@ require '../include/layout/header.php';
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-3">
-                                <div class="border border-3 d-flex align-items-center justify-content-center">
-                                    <p class="fw-bold" style="font-size:4.5rem ;color:#9d04ff;">
-                                        <?php echo $data_fast['number'];?>
-                                    </p>
-                                </div>
+                            <div class="col-3 border border-3 d-flex align-items-center justify-content-center">
+                                <p class="fw-bold px-1" style="font-size:4.5rem ;color:#9d04ff;">
+                                    <?php echo $data_fast['number'];?>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -83,12 +81,10 @@ require '../include/layout/header.php';
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-3">
-                                <div class="border border-3 d-flex align-items-center justify-content-center">
-                                    <p class="fw-bold" style="font-size:4.5rem ;color:#fd7401;">
-                                        <?php echo $data_full['number'];?>
-                                    </p>
-                                </div>
+                            <div class="col-3 border border-3 d-flex align-items-center justify-content-center">
+                                <p class="fw-bold" style="font-size:4.5rem ;color:#fd7401;">
+                                    <?php echo $data_full['number'];?>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -116,12 +112,10 @@ require '../include/layout/header.php';
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-3">
-                                <div class="border border-3 d-flex align-items-center justify-content-center">
-                                    <p class="fw-bold" style="font-size:4.5rem ;color:#7cdf13;">
-                                        <?php echo $data_health['number'];?>
-                                    </p>
-                                </div>
+                            <div class="col-3 border border-3 d-flex align-items-center justify-content-center">
+                                <p class="fw-bold" style="font-size:4.5rem ;color:#7cdf13;">
+                                    <?php echo $data_health['number'];?>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -168,15 +162,15 @@ require '../include/layout/header.php';
                                 <div class="col-4 text-center">
                                     <div class="d-flex flex-column">
                                         <span class="badge rounded-pill text-dark mx-1"
-                                            style="background-color: #D698FE;">Fast track</span>
-                                        <p><?php echo $data_follow_fast['number']?></p>
+                                            style="background-color: #D698FE;">Pharmaceutical medicine</span>
+                                        <p><?php echo $data_follow_phar['number']?></p>
                                     </div>
                                 </div>
                                 <div class="col-4 text-center">
                                     <div class="d-flex flex-column">
                                         <span class="badge rounded-pill text-dark mx-1"
-                                            style="background-color: #F0AD75;">Full dossier</span>
-                                        <p><?php echo $data_follow_full['number']?></p>
+                                            style="background-color: #F0AD75;">Medical device</span>
+                                        <p><?php echo $data_follow_device['number']?></p>
                                     </div>
                                 </div>
                                 <div class="col-4 text-center">
@@ -232,15 +226,15 @@ require '../include/layout/header.php';
                                 <div class="col-4 text-center">
                                     <div class="d-flex flex-column">
                                         <span class="badge rounded-pill text-dark mx-1"
-                                            style="background-color: #D698FE;">Fast track</span>
-                                        <p><?php echo $data_post_fast['number']?></p>
+                                            style="background-color: #D698FE;">Pharmaceutical medicine</span>
+                                        <p><?php echo $data_post_phar['number']?></p>
                                     </div>
                                 </div>
                                 <div class="col-4 text-center">
                                     <div class="d-flex flex-column">
                                         <span class="badge rounded-pill text-dark mx-1"
-                                            style="background-color: #F0AD75;">Full dossier</span>
-                                        <p><?php echo $data_post_full['number']?></p>
+                                            style="background-color: #F0AD75;">Medical device</span>
+                                        <p><?php echo $data_post_device['number']?></p>
                                     </div>
                                 </div>
                                 <div class="col-4 text-center">
