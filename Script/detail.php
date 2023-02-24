@@ -473,6 +473,336 @@ require '../include/layout/header.php';
                     <a type="button" class="btn btn-danger">Delete</a>
                 </div>
             </div>
+            <?php elseif($type === "medical_full") : ?>
+            <div class="card-header text-center">
+                <?php echo $data['id'] ;?>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered table-hover">
+                    <tbody>
+                        <tr>
+                            <th class="w-50 text-center">Dossier ID</th>
+                            <td class="w-50 text-center"><?php echo $data['Dossier_ID'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Generic name</th>
+                            <td class="w-50 text-center"><?php echo $data['Generic_name'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Brand name</th>
+                            <td class="w-50 text-center"><?php echo $data['Brand_name'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Date of assessment</th>
+                            <td class="w-50 text-center"><?php echo $data['date_fast'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Class</th>
+                            <td class="w-50 text-center"><?php echo $data['Class'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Group</th>
+                            <td class="w-50 text-center"><?php echo $data['Group_full'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Name of the Applicant/Market Authorization Holder</th>
+                            <td class="w-50 text-center"><?php echo $data['Name_Applicant_Market'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Contact Details</th>
+                            <td class="w-50 text-center"><?php echo $data['Contact_Details'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Name of the Manufacturer</th>
+                            <td class="w-50 text-center"><?php echo $data['Name_Manufacturer'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Letter of Authorization from the manufacturer</th>
+                            <td class="w-50"><?php echo $data['Letter_of_Authorization'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Quality System</th>
+                            <td class="w-50"><?php echo $data['Quality'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Free sale certificate</th>
+                            <td class="w-50"><?php echo $data['Sale_certificate'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Manufacturing Process Details</th>
+                            <td class="w-50 text-center"><?php echo $data['Manufacturing_Details'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">List of Configurations and/or components</th>
+                            <td class="w-50 text-center"><?php echo $data['Configurations'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Sample of Actual Product</th>
+                            <td class="w-50 text-center"><?php echo $data['Sample_full'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Price structure</th>
+                            <td class="w-50 text-center"><?php echo $data['Price_structure'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Executive Summary</th>
+                            <td class="w-50 text-center"><?php echo $data['Executive_Summary'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Relevant Essential Principles</th>
+                            <td class="w-50 text-center"><?php echo $data['Essential_Principles'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Device Description</th>
+                            <td class="w-50 text-center"><?php echo $data['Device_description'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Performance Report</th>
+                            <td class="w-50 text-center"><?php echo $data['Performance'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Clinical Evidences</th>
+                            <td class="w-50 text-center"><?php echo $data['Clinical_Evidences'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Device Labelling</th>
+                            <td class="w-50 text-center"><?php echo $data['Labelling'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Risk Analysis</th>
+                            <td class="w-50 text-center"><?php echo $data['Risk'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Recommended for issuance</th>
+                            <td class="w-50 text-center"><?php echo $data['Recommended_issuance'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Missing Document</th>
+                            <td class="w-50 text-center"><?php echo $data['Missing_document'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Status</th>
+                            <td class="w-50 text-center"><?php echo $data['Show_status'];?></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer text-muted row">
+                <div class="col-6 d-grid">
+                    <a type="button" class="btn btn-warning"
+                        href="./edit.php?id=<?php echo $data["id"];?>&type=medical_full">Edit</a>
+                </div>
+                <div class="col-6 d-grid">
+                    <a type="button" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+            <?php elseif($type === "medical_abr") : ?>
+            <div class="card-header text-center">
+                <?php echo $data['id'] ;?>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered table-hover">
+                    <tbody>
+                        <tr>
+                            <th class="w-50 text-center">Dossier ID</th>
+                            <td class="w-50 text-center"><?php echo $data['Dossier_ID'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Generic name</th>
+                            <td class="w-50 text-center"><?php echo $data['Generic_name'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Brand name</th>
+                            <td class="w-50 text-center"><?php echo $data['Brand_name'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Date of assessment</th>
+                            <td class="w-50 text-center"><?php echo $data['date_fast'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Class</th>
+                            <td class="w-50 text-center"><?php echo $data['Class'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Group</th>
+                            <td class="w-50 text-center"><?php echo $data['Group_abr'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Name of the Applicant/Market Authorization Holder</th>
+                            <td class="w-50 text-center"><?php echo $data['Name_Applicant_Market'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Contact Details</th>
+                            <td class="w-50 text-center"><?php echo $data['Contact_Details'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Name of the Manufacturer</th>
+                            <td class="w-50 text-center"><?php echo $data['Name_Manufacturer'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Letter of Authorization from the manufacturer</th>
+                            <td class="w-50"><?php echo $data['Letter_of_Authorization'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Brief Description of the Quality System</th>
+                            <td class="w-50"><?php echo $data['Brief'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Free sale certificate</th>
+                            <td class="w-50"><?php echo $data['Sale_certificate'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Documentary evidences for Abridged Registration</th>
+                            <td class="w-50"><?php echo $data['Evidences'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Manufacturing Process Details</th>
+                            <td class="w-50 text-center"><?php echo $data['Manufacturing_Details'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">List of Configurations and/or components</th>
+                            <td class="w-50 text-center"><?php echo $data['Configurations'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Sample of Actual Product</th>
+                            <td class="w-50 text-center"><?php echo $data['Sample_abr'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Price structure</th>
+                            <td class="w-50 text-center"><?php echo $data['Price_structure'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Executive Summary</th>
+                            <td class="w-50 text-center"><?php echo $data['Evidence_ABR'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Device Description</th>
+                            <td class="w-50 text-center"><?php echo $data['Device_description'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Performance Report</th>
+                            <td class="w-50 text-center"><?php echo $data['Certificate_analysis'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Clinical Evidences</th>
+                            <td class="w-50 text-center"><?php echo $data['Recommended_issuance'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Missing Document</th>
+                            <td class="w-50 text-center"><?php echo $data['Missing_document'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Status</th>
+                            <td class="w-50 text-center"><?php echo $data['Show_status'];?></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer text-muted row">
+                <div class="col-6 d-grid">
+                    <a type="button" class="btn btn-warning"
+                        href="./edit.php?id=<?php echo $data["id"];?>&type=medical_abr">Edit</a>
+                </div>
+                <div class="col-6 d-grid">
+                    <a type="button" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+            <?php elseif($type === "medical_renewal") : ?>
+            <div class="card-header text-center">
+                <?php echo $data['id'] ;?>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered table-hover">
+                    <tbody>
+                        <tr>
+                            <th class="w-50 text-center">Dossier ID</th>
+                            <td class="w-50 text-center"><?php echo $data['Dossier_ID'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Generic name</th>
+                            <td class="w-50 text-center"><?php echo $data['Generic_name'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Brand name</th>
+                            <td class="w-50 text-center"><?php echo $data['Brand_name'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Date of assessment</th>
+                            <td class="w-50 text-center"><?php echo $data['date_fast'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Class</th>
+                            <td class="w-50 text-center"><?php echo $data['Class'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Group</th>
+                            <td class="w-50 text-center"><?php echo $data['Group_renewal'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Name of the Applicant/Market Authorization Holder</th>
+                            <td class="w-50 text-center"><?php echo $data['Name_Applicant_Market'];?></td>
+                        </tr>
+                        <tr>
+                        <tr>
+                            <th class="w-50 text-center">Registration Number</th>
+                            <td class="w-50 text-center"><?php echo $data['Registration_Number'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Contact Details</th>
+                            <td class="w-50 text-center"><?php echo $data['Contact_Details'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Name of the Manufacturer</th>
+                            <td class="w-50 text-center"><?php echo $data['Name_Manufacturer'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Receipt number with date</th>
+                            <td class="w-50 text-center"><?php echo $data['Receipt_Number'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Email</th>
+                            <td class="w-50 text-center"><?php echo $data['Email'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Letter of Authorization from the manufacturer</th>
+                            <td class="w-50"><?php echo $data['Letter_of_Authorization'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Declaration Letter from the company stating</th>
+                            <td class="w-50"><?php echo $data['Declaration_Letter'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Copy of Initial Registration Certificate</th>
+                            <td class="w-50"><?php echo $data['Initial_Registration'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Specimen of package, label and insert where applicable</th>
+                            <td class="w-50"><?php echo $data['Specimen_package'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Recommended for issuance of registration certificate</th>
+                            <td class="w-50 text-center"><?php echo $data['Recommended_issuance'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Missing Document</th>
+                            <td class="w-50 text-center"><?php echo $data['Missing_document'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-center">Status</th>
+                            <td class="w-50 text-center"><?php echo $data['Show_status'];?></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer text-muted row">
+                <div class="col-6 d-grid">
+                    <a type="button" class="btn btn-warning"
+                        href="./edit.php?id=<?php echo $data["id"];?>&type=medical_renewal">Edit</a>
+                </div>
+                <div class="col-6 d-grid">
+                    <a type="button" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
             <?php endif; ?>
 
         </div>
