@@ -92,8 +92,20 @@ $_SESSION['user_name'] = $user_name;
                             <a class="nav-link rounded-3" aria-current="page" href="./home.php"
                                 style="font-size: 1.1rem ;">Home</a>
                         </li>
-                        <li class="nav-item mx-1">
+                        <!-- <li class="nav-item mx-1">
                             <a class="nav-link rounded-3" href="./table.php" style="font-size: 1.1rem ;">Table</a>
+                        </li> -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle rounded-3" style="font-size: 1.1rem ;" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Table
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="./fast_table.php">Fast track</a></li>
+                                <li><a class="dropdown-item" href="./full_table.php">Full dossier</a></li>
+                                <li><a class="dropdown-item" href="./health_table.php">Health supplement</a></li>
+                                <li><a class="dropdown-item" href="./follow_table.php">Follow up</a></li>
+                                <li><a class="dropdown-item" href="./post_table.php">Post approval</a></li>
+                            </ul>
                         </li>
                         <li class="nav-item mx-1">
                             <a class="nav-link rounded-3" href="./pharmaceutical_medicine.php"

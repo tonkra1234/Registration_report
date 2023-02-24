@@ -49,6 +49,9 @@ require '../include/layout/header.php';
                                     <option value="Following_up">Following up</option>
                                     <option value="Health_supplement">Health supplement</option>
                                     <option value="Post_approval">Post approval</option>
+                                    <option value="Medical_full">Medical full</option>
+                                    <option value="Medical_ABR">Medical ABR</option>
+                                    <option value="Medical_renewal">Medical renewal</option>
                                 </select>
                             </div>
                         </div>

@@ -63,8 +63,8 @@ if (isset($_POST['submit']))
                                     <label for="Communication_round" class="form-label">Communication round</label>
                                     <select class="form-select" aria-label="Communication_round"
                                         name="Communication_round" id="Communication_round" required>
-                                        <option value="First">First</option>
                                         <option value="Second">Second</option>
+                                        <option value="Last">Last</option>
                                     </select>
                                 </div>
                                 <div class="mb-3">

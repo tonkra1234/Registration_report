@@ -13,8 +13,8 @@ $_SESSION['user_name'] = $user_name;
 
 if (isset($_POST['submit'])) 
 {
-    // require '../../include/medical_abr/session_abr.php';
-    // require '../../include/database/medical_abr_Mysql.php';
+    require '../../include/medical_full/session_full.php';
+    require '../../include/database/medical_full_Mysql.php';
 }
 
 ?>
@@ -52,8 +52,8 @@ if (isset($_POST['submit']))
                             <input type="text" class="form-control" id="Class" name="Class" required>
                         </div>
                         <div class="mb-3">
-                            <label for="Group_abr" class="form-label">Group</label>
-                            <input type="text" class="form-control" id="Group_abr" name="Group_abr" required>
+                            <label for="Group_full" class="form-label">Group</label>
+                            <input type="text" class="form-control" id="Group_full" name="Group_full" required>
                         </div>
                         <div class="mb-3">
                             <label for="Name_Applicant_Market" class="form-label">Name of the Applicant/Market
@@ -181,11 +181,8 @@ if (isset($_POST['submit']))
                         </div>
                     </div>
                 </div>
-
-
             </form>
         </div>
-
     </div>
 </div>
 </div>

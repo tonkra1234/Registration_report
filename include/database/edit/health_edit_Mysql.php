@@ -12,7 +12,7 @@ if ($conn->query($update) === TRUE) {
     'Please, click button to continue!',
     'success'
   ).then(function() {
-    window.location = '../table.php';
+    window.location = './health_table.php';
   });
   </script>";
   } else {

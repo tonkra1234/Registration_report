@@ -18,6 +18,8 @@ $sql = "SELECT * FROM $type WHERE id=$id";
 $result = mysqli_query ($conn, $sql);
 $data = $result->fetch_assoc();
 
+require '../include/layout/header.php';
+
 if (isset($_POST['submit'])) 
 {
     if($type === "fast_track"){
@@ -42,11 +44,8 @@ if (isset($_POST['submit']))
         require '../include//post_approval_assessment/session_post.php';
         require '../include/database/edit/post_edit_Mysql.php';
     } 
-
-    header("location:./table.php?message=submit");
 }
 
-require '../include/layout/header.php';
 ?>
 
 
@@ -706,8 +705,8 @@ require '../include/layout/header.php';
                             id="Communication_round" required>
                             <option value="<?php echo $data["Communication_round"] ?>">
                                 <?php echo $data["Communication_round"] ?></option>
-                            <option value="First">First</option>
                             <option value="Second">Second</option>
+                            <option value="Last">Last</option>
                         </select>
                     </div>
                     <div class="mb-3">

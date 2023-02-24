@@ -325,4 +325,188 @@ $month = date('m',$time);
     </tbody>
 </table>
 
+<?php elseif($report === "Medical_full") : ?>
+<?php
+        if($month_year === ""){
+            $sql = "SELECT * FROM medical_full";
+            $result_full = mysqli_query ($conn, $sql); 
+        }    
+        else{  
+            $sql = "SELECT * FROM medical_full WHERE MONTH(date_fast) = $month and Year(date_fast) = $year";
+            $result_full = mysqli_query ($conn, $sql);  
+        }    
+        
+    ?>
+<table class="table table-hover table-bordered">
+    <thead>
+        <tr class="table-info">
+            <th scope="col">No.</th>
+            <th scope="col">Dossier ID</th>
+            <th scope="col">Date of Assessment</th>
+            <th scope="col">Brand name</th>
+            <th scope="col">Status</th>
+            <th scope="col">Details</th>
+            <th scope="col">Report</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <?php
+        $No =1;
+        if ($result_full->num_rows > 0){
+            while ($row_full = mysqli_fetch_array($result_full)){
+        ?>
+        <tr>
+            <th scope="row"><?php echo $No;?></th>
+            <td><?php echo $row_full["Dossier_ID"]; ?></td>
+            <td><?php echo $row_full["date_fast"]; ?></td>
+            <td><?php echo $row_full["Brand_name"]; ?></td>
+            <td class="text-center align-middle">
+                <?php if(((array_key_exists("Show_status",$row_full)) ? $row_full["Show_status"] : "" ) === "Approve") : ?>
+                <span class="badge bg-success"><?php echo $row_full["Show_status"] ?></span></td>
+            <?php elseif(((array_key_exists("Show_status",$row_full)) ? $row_full["Show_status"] : "" ) === "Reject") : ?>
+                <span class="badge bg-danger"><?php echo $row_full["Show_status"] ?></span></td>
+            <?php else : ?>
+                <span class="badge bg-warning text-dark"><?php echo (array_key_exists("Show_status",$row_full)) ? $row_full["Show_status"] : "" ; ?></span>
+            </td>
+            <?php endif; ?></td>
+            <td class="text-center"><a type="button" class="btn btn-primary" href="./detail.php?id=<?php echo $row_full["id"];?>&type=medical_full">Click</a></td>
+            <td class="text-center"><a type="button" class="btn btn-success" href="./report_show.php?id=<?php echo $row_full["id"];?>&type=medical_full">Click</a></td>
+        </tr>
+        <?php
+            $No++;
+            }
+        }
+        else{
+        ?>
+        <td colspan="8" class="text-center fs-3 py-5">Not found data</td>
+        <?php    
+        }
+        ?>
+
+    </tbody>
+</table>
+<?php elseif($report === "Medical_ABR") : ?>
+<?php
+        if($month_year === ""){
+            $sql = "SELECT * FROM medical_abr";
+            $result_full = mysqli_query ($conn, $sql); 
+        }    
+        else{  
+            $sql = "SELECT * FROM medical_abr WHERE MONTH(date_fast) = $month and Year(date_fast) = $year";
+            $result_full = mysqli_query ($conn, $sql);  
+        }    
+        
+    ?>
+<table class="table table-hover table-bordered">
+    <thead>
+        <tr class="table-info">
+            <th scope="col">No.</th>
+            <th scope="col">Dossier ID</th>
+            <th scope="col">Date of Assessment</th>
+            <th scope="col">Brand name</th>
+            <th scope="col">Status</th>
+            <th scope="col">Details</th>
+            <th scope="col">Report</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <?php
+        $No =1;
+        if ($result_full->num_rows > 0){
+            while ($row_full = mysqli_fetch_array($result_full)){
+        ?>
+        <tr>
+            <th scope="row"><?php echo $No;?></th>
+            <td><?php echo $row_full["Dossier_ID"]; ?></td>
+            <td><?php echo $row_full["date_fast"]; ?></td>
+            <td><?php echo $row_full["Brand_name"]; ?></td>
+            <td class="text-center align-middle">
+                <?php if(((array_key_exists("Show_status",$row_full)) ? $row_full["Show_status"] : "" ) === "Approve") : ?>
+                <span class="badge bg-success"><?php echo $row_full["Show_status"] ?></span></td>
+            <?php elseif(((array_key_exists("Show_status",$row_full)) ? $row_full["Show_status"] : "" ) === "Reject") : ?>
+                <span class="badge bg-danger"><?php echo $row_full["Show_status"] ?></span></td>
+            <?php else : ?>
+                <span class="badge bg-warning text-dark"><?php echo (array_key_exists("Show_status",$row_full)) ? $row_full["Show_status"] : "" ; ?></span>
+            </td>
+            <?php endif; ?></td>
+            <td class="text-center"><a type="button" class="btn btn-primary" href="./detail.php?id=<?php echo $row_full["id"];?>&type=medical_abr">Click</a></td>
+            <td class="text-center"><a type="button" class="btn btn-success" href="./report_show.php?id=<?php echo $row_full["id"];?>&type=medical_abr">Click</a></td>
+        </tr>
+        <?php
+            $No++;
+            }
+        }
+        else{
+        ?>
+        <td colspan="8" class="text-center fs-3 py-5">Not found data</td>
+        <?php    
+        }
+        ?>
+
+    </tbody>
+</table>
+<?php elseif($report === "Medical_renewal") : ?>
+<?php
+        if($month_year === ""){
+            $sql = "SELECT * FROM medical_renewal";
+            $result_full = mysqli_query ($conn, $sql); 
+        }    
+        else{  
+            $sql = "SELECT * FROM medical_renewal WHERE MONTH(date_fast) = $month and Year(date_fast) = $year";
+            $result_full = mysqli_query ($conn, $sql);  
+        }    
+        
+    ?>
+<table class="table table-hover table-bordered">
+    <thead>
+        <tr class="table-info">
+            <th scope="col">No.</th>
+            <th scope="col">Dossier ID</th>
+            <th scope="col">Date of Assessment</th>
+            <th scope="col">Brand name</th>
+            <th scope="col">Status</th>
+            <th scope="col">Details</th>
+            <th scope="col">Report</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <?php
+        $No =1;
+        if ($result_full->num_rows > 0){
+            while ($row_full = mysqli_fetch_array($result_full)){
+        ?>
+        <tr>
+            <th scope="row"><?php echo $No;?></th>
+            <td><?php echo $row_full["Dossier_ID"]; ?></td>
+            <td><?php echo $row_full["date_fast"]; ?></td>
+            <td><?php echo $row_full["Brand_name"]; ?></td>
+            <td class="text-center align-middle">
+                <?php if(((array_key_exists("Show_status",$row_full)) ? $row_full["Show_status"] : "" ) === "Approve") : ?>
+                <span class="badge bg-success"><?php echo $row_full["Show_status"] ?></span></td>
+            <?php elseif(((array_key_exists("Show_status",$row_full)) ? $row_full["Show_status"] : "" ) === "Reject") : ?>
+                <span class="badge bg-danger"><?php echo $row_full["Show_status"] ?></span></td>
+            <?php else : ?>
+                <span class="badge bg-warning text-dark"><?php echo (array_key_exists("Show_status",$row_full)) ? $row_full["Show_status"] : "" ; ?></span>
+            </td>
+            <?php endif; ?></td>
+            <td class="text-center"><a type="button" class="btn btn-primary" href="./detail.php?id=<?php echo $row_full["id"];?>&type=medical_renewal">Click</a></td>
+            <td class="text-center"><a type="button" class="btn btn-success" href="./report_show.php?id=<?php echo $row_full["id"];?>&type=medical_renewal">Click</a></td>
+        </tr>
+        <?php
+            $No++;
+            }
+        }
+        else{
+        ?>
+        <td colspan="8" class="text-center fs-3 py-5">Not found data</td>
+        <?php    
+        }
+        ?>
+
+    </tbody>
+</table>
+
 <?php endif; ?>

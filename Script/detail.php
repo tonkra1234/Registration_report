@@ -447,7 +447,7 @@ require '../include/layout/header.php';
                         <tr>
                             <th class="w-50 text-center">List the documents and conditions to be fulfilled for
                                 the proposed variation</th>
-                            <td class="w-50"><?php echo $data['fulfilled_conditions	'];?></td>
+                            <td class="w-50"><?php echo $data['fulfilled_conditions'];?></td>
                         </tr>
                         <tr>
                             <th class="w-50 text-center">Justification for the variation</th>

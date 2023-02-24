@@ -23,7 +23,7 @@ for ($i=1; $i < 7; $i++) {
     $_SESSION['select'."$i"] = ${'select'.$i};
 }
 
-$Site_Master = $_POST['Site_Master'];
+$Site_Master = mysqli_real_escape_string($conn,$_POST['Site_Master']);
 $_SESSION['Site_Master'] = $Site_Master;
 
 $Product_Sample = mysqli_real_escape_string($conn,$_POST['Product_Sample']);
