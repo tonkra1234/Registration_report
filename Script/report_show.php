@@ -531,5 +531,469 @@ elseif ($type ==='post_approval') {
 
     $pdf->Output();
 }
+elseif ($type ==='medical_full') {
+
+    $pdf=new FPDF();
+    $pdf->AddPage('L');
+    
+    $pdf->SetFont('Arial','',12);
+
+    // Header
+    $pdf->cell(30,30,$pdf->Image($image1, $pdf->GetX()+2, $pdf->GetY()+2, 25),1,0);
+    $pdf->cell(244,15,'Evaluation of Medical Device Dossiers (Full)',1,2,'C');
+    $pdf->cell(61,7.5,'Document Number',1,0);
+    $pdf->cell(61,7.5,'Effective Date',1,0);
+    $pdf->cell(61,7.5,'Review Date',1,0);
+    $pdf->cell(61,7.5,'Version No.',1,1);
+    $pdf->SetX(40);
+    $pdf->cell(61,7.5,'DRA-F-D1-01-12',1,0);
+    $pdf->cell(61,7.5,'27-09-2022',1,0);
+    $pdf->cell(61,7.5,'27-09-2024',1,0);
+    $pdf->cell(61,7.5,'00',1,0);
+
+    // Information
+
+    // Registration Detail
+    $pdf->Ln('15');
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,10,'Evaluation of Medical Device Dossiers (Full)',1,2,'C');
+    $pdf->SetFont('Arial','',12);
+    $pdf->cell(274,10,'Dossier ID: '.$data['Dossier_ID'],1,1,'L');
+    $pdf->cell(274,10,'Generic Name: '.$data['Generic_name'],1,1,'L');
+    $pdf->cell(274,10,'Brand Name: '.$data['Brand_name'],1,1,'L');
+    $pdf->cell(274,10,'Class: '.$data['Generic_name'],1,1,'L');
+    $pdf->cell(274,10,'Group: '.$data['Group_full'],1,1,'L');
+    $pdf->cell(274,10,'Name of the Applicant/Market Authorization Holder: '.$data['Name_Applicant_Market'],1,1,'L');
+    $pdf->cell(274,10,'Contact Details: '.$data['Name_Applicant_Market'],1,1,'L');
+    $pdf->cell(274,10,'Name of the Manufacturer: '.$data['Name_Manufacturer'],1,1,'L');
+    $pdf->cell(274,10,'Contact Details: '.$data['Contact_Details'],1,1,'L');
+    $pdf->cell(274,10,'Application date: '.$data['date_fast'],1,1,'L');
+
+
+    $pdf->AddPage('L');
+    // Part A
+    // Administrative Documents
+    $pdf->Ln('10');
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,10,'Administrative Documents',1,2,'C');
+    $pdf->SetFont('Arial','',12);
+    $pdf->Ln('5');
+    // select1
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,8,'Dully filled Application form, Letter of Authorization from the manufacturer, Declaration of Conformity',1,1,'L');
+    $pdf->SetFont('Arial','',12);
+    $pdf->Multicell(274,8,$data['Letter_of_Authorization'],1,1);
+    $pdf->Ln('5');
+    // select2
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,8,'Quality System',1,1,'L');
+    $pdf->SetFont('Arial','',12);
+    $pdf->Multicell(274,8,$data['Quality'],1,1);
+    $pdf->Ln('5');
+    // select3
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,8,'Free sale certificate',1,1,'L');
+    $pdf->SetFont('Arial','',12);
+    $pdf->Multicell(274,8,$data['Sale_certificate'],1,1);
+    $pdf->Ln('5');
+    // select4
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,8,'Manufacturing Process Detail',1,1,'L');
+    $pdf->SetFont('Arial','',12);
+    $pdf->Multicell(274,8,$data['Manufacturing_Details'],1,1);
+
+    $pdf->AddPage('L');
+    $pdf->Ln('5');
+    // select5
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,8,'List of Configurations and/or components',1,1,'L');
+    $pdf->SetFont('Arial','',12);
+    $pdf->Multicell(274,8,$data['Configurations'],1,1);
+    $pdf->Ln('5');
+    // select6
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,8,'Sample of Actual Product ( If applicable)',1,1,'L');
+    $pdf->SetFont('Arial','',12);
+    $pdf->Multicell(274,8,$data['Sample_full'],1,1);
+    $pdf->Ln('5');
+    // select7
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,8,'Price structure (Market price in the country of origin)',1,1,'L');
+    $pdf->SetFont('Arial','',12);
+    $pdf->Multicell(274,8,$data['Price_structure'],1,1);
+
+
+    $pdf->AddPage('L');
+
+    // Part B
+    $pdf->Ln('5');
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,10,'Part B: Technical Document Requirements',1,1,'C');
+    $pdf->SetFont('Arial','',12);
+    $pdf->Ln('5');
+    // select8
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,8,'Executive Summary',1,1,'L');
+    $pdf->SetFont('Arial','',12);
+    $pdf->Multicell(274,8,$data['Executive_Summary'],1,1);
+    $pdf->Ln('5');
+
+    // select9
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,8,'Relevant Essential Principles and Method Used to Demonstrate Conformity (Checklist) for class C and D',1,1,'L');
+    $pdf->SetFont('Arial','',12);
+    $pdf->Multicell(274,8,$data['Essential_Principles'],1,1);
+    $pdf->Ln('5');
+
+    // select10
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,8,'Device Description',1,1,'L');
+    $pdf->SetFont('Arial','',12);
+    $pdf->Multicell(274,8,$data['Device_description'],1,1);
+    $pdf->Ln('5');
+
+    $pdf->AddPage('L');
+
+    // select11
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,8,'Performance Report / Certificate of Analysis',1,1,'L');
+    $pdf->SetFont('Arial','',12);
+    $pdf->Multicell(274,8,$data['Performance'],1,1);
+    $pdf->Ln('5');
+
+    // select12
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,8,'Clinical Evidences for class C and D ( (if applicable)',1,1,'L');
+    $pdf->SetFont('Arial','',12);
+    $pdf->Multicell(274,8,$data['Clinical_Evidences'],1,1);
+    $pdf->Ln('5');
+
+    // select13
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,8,'Device Labelling',1,1,'L');
+    $pdf->SetFont('Arial','',12);
+    $pdf->Multicell(274,8,$data['Labelling'],1,1);
+    $pdf->Ln('5');
+
+    // select14
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,8,'Risk Analysis',1,1,'L');
+    $pdf->SetFont('Arial','',12);
+    $pdf->Multicell(274,8,$data['Risk'],1,1);
+    $pdf->Ln('5');
+
+    $pdf->AddPage('L');
+
+    // Part C
+    $pdf->Ln('5');
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,10,'Recommendations from the Evaluator',0,1,'C');
+    $pdf->SetFont('Arial','',12);
+    $pdf->Ln('5');
+
+    // Certificate of Analysis of API and Excipients:
+    $pdf->Ln('5');
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,10,'Recommended for issuance of registration certificate',1,2,'L');
+    $pdf->SetFont('Arial','',12);
+    $pdf->MultiCell(274, 6,$data['Recommended_issuance'], 1, 1);
+    $pdf->Ln('5');
+
+    // Certificate of Analysis of API and Excipients:
+    $pdf->Ln('5');
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,10,'Missing Document as stated below',1,2,'L');
+    $pdf->SetFont('Arial','',12);
+    $pdf->MultiCell(274, 6,$data['Missing_document'], 1, 1);
+
+    $pdf->AddPage('L');
+
+    $pdf->Ln('10');
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,10,'Signature',1,2,'C');
+    $pdf->SetFont('Arial','',12);
+    // Signature
+    $pdf->Ln('40');
+    $pdf->cell(200,7,'Assessed By (Name, Division)',0,0,'L');
+    $pdf->cell(70,7,'Verified By(Name, Division)',0,0,'L');
+
+
+    $pdf->Output();
+}
+elseif ($type ==='medical_abr') {
+
+    $pdf=new FPDF();
+    $pdf->AddPage('L');
+    
+    $pdf->SetFont('Arial','',12);
+
+    // Header
+    $pdf->cell(30,30,$pdf->Image($image1, $pdf->GetX()+2, $pdf->GetY()+2, 25),1,0);
+    $pdf->cell(244,15,'Evaluation of Medical Device Dossiers (Abridged)',1,2,'C');
+    $pdf->cell(61,7.5,'Document Number',1,0);
+    $pdf->cell(61,7.5,'Effective Date',1,0);
+    $pdf->cell(61,7.5,'Review Date',1,0);
+    $pdf->cell(61,7.5,'Version No.',1,1);
+    $pdf->SetX(40);
+    $pdf->cell(61,7.5,'DRA-F-D1-01-12',1,0);
+    $pdf->cell(61,7.5,'27-09-2022',1,0);
+    $pdf->cell(61,7.5,'27-09-2024',1,0);
+    $pdf->cell(61,7.5,'00',1,0);
+
+    // Information
+
+    // Registration Detail
+    $pdf->Ln('15');
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,10,'Evaluation of Medical Device Dossiers (Abridged)',1,2,'C');
+    $pdf->SetFont('Arial','',12);
+    $pdf->cell(274,10,'Dossier ID: '.$data['Dossier_ID'],1,1,'L');
+    $pdf->cell(274,10,'Generic Name: '.$data['Generic_name'],1,1,'L');
+    $pdf->cell(274,10,'Brand Name: '.$data['Brand_name'],1,1,'L');
+    $pdf->cell(274,10,'Class: '.$data['Generic_name'],1,1,'L');
+    $pdf->cell(274,10,'Group: '.$data['Group_abr'],1,1,'L');
+    $pdf->cell(274,10,'Name of the Applicant/Market Authorization Holder: '.$data['Name_Applicant_Market'],1,1,'L');
+    $pdf->cell(274,10,'Contact Details: '.$data['Name_Applicant_Market'],1,1,'L');
+    $pdf->cell(274,10,'Name of the Manufacturer: '.$data['Name_Manufacturer'],1,1,'L');
+    $pdf->cell(274,10,'Contact Details: '.$data['Contact_Details'],1,1,'L');
+    $pdf->cell(274,10,'Application date: '.$data['date_fast'],1,1,'L');
+
+
+    $pdf->AddPage('L');
+    // Part A
+    // Administrative Documents
+    $pdf->Ln('10');
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,10,'Administrative Documents',1,2,'C');
+    $pdf->SetFont('Arial','',12);
+    $pdf->Ln('5');
+    // select1
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,8,'Dully filled Application form, Letter of Authorization from the manufacturer, Declaration of Conformity',1,1,'L');
+    $pdf->SetFont('Arial','',12);
+    $pdf->Multicell(274,8,$data['Letter_of_Authorization'],1,1);
+    $pdf->Ln('5');
+    // select2
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,8,'Brief Description of the Quality System',1,1,'L');
+    $pdf->SetFont('Arial','',12);
+    $pdf->Multicell(274,8,$data['Brief'],1,1);
+    $pdf->Ln('5');
+    // select3
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,8,'Free sale certificate',1,1,'L');
+    $pdf->SetFont('Arial','',12);
+    $pdf->Multicell(274,8,$data['Sale_certificate'],1,1);
+    $pdf->Ln('5');
+    // select4
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,8,'Documentary evidences for Abridged Registration',1,1,'L');
+    $pdf->SetFont('Arial','',12);
+    $pdf->Multicell(274,8,$data['Evidences'],1,1);
+
+    $pdf->AddPage('L');
+    // select5
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,8,'Manufacturing Process Detail',1,1,'L');
+    $pdf->SetFont('Arial','',12);
+    $pdf->Multicell(274,8,$data['Manufacturing_Details'],1,1);
+    $pdf->Ln('5');
+    // select6
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,8,'List of Configurations and/or components',1,1,'L');
+    $pdf->SetFont('Arial','',12);
+    $pdf->Multicell(274,8,$data['Configurations'],1,1);
+    $pdf->Ln('5');
+    // select7
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,8,'Sample of Actual Product ( If applicable)',1,1,'L');
+    $pdf->SetFont('Arial','',12);
+    $pdf->Multicell(274,8,$data['Sample_abr'],1,1);
+    $pdf->Ln('5');
+    // select8
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,8,'Price structure (Market price in the country of origin)',1,1,'L');
+    $pdf->SetFont('Arial','',12);
+    $pdf->Multicell(274,8,$data['Price_structure'],1,1);
+
+
+    $pdf->AddPage('L');
+
+    // Part B
+    $pdf->Ln('5');
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,10,'Part B: Technical Requirements',1,1,'C');
+    $pdf->SetFont('Arial','',12);
+    $pdf->Ln('5');
+    // select9
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,8,'Evidence to support abridged registration',1,1,'L');
+    $pdf->SetFont('Arial','',12);
+    $pdf->Multicell(274,8,$data['Evidence_ABR'],1,1);
+    $pdf->Ln('5');
+
+    // select10
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,8,'Device Description',1,1,'L');
+    $pdf->SetFont('Arial','',12);
+    $pdf->Multicell(274,8,$data['Device_description'],1,1);
+    $pdf->Ln('5');
+
+    // select11
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,8,'Certificate of analysis or performance report for at least three batches/lots',1,1,'L');
+    $pdf->SetFont('Arial','',12);
+    $pdf->Multicell(274,8,$data['Certificate_analysis'],1,1);
+    $pdf->Ln('5');
+
+    $pdf->AddPage('L');
+
+    // Part C
+    $pdf->Ln('5');
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,10,'Recommendations from the Evaluator',0,1,'C');
+    $pdf->SetFont('Arial','',12);
+    $pdf->Ln('5');
+
+    // Certificate of Analysis of API and Excipients:
+    $pdf->Ln('5');
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,10,'Recommended for issuance of registration certificate',1,2,'L');
+    $pdf->SetFont('Arial','',12);
+    $pdf->MultiCell(274, 6,$data['Recommended_issuance'], 1, 1);
+    $pdf->Ln('5');
+
+    // Certificate of Analysis of API and Excipients:
+    $pdf->Ln('5');
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,10,'Missing Document as stated below',1,2,'L');
+    $pdf->SetFont('Arial','',12);
+    $pdf->MultiCell(274, 6,$data['Missing_document'], 1, 1);
+
+    $pdf->AddPage('L');
+
+    $pdf->Ln('10');
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,10,'Signature',1,2,'C');
+    $pdf->SetFont('Arial','',12);
+    // Signature
+    $pdf->Ln('40');
+    $pdf->cell(200,7,'Assessed By (Name, Division)',0,0,'L');
+    $pdf->cell(70,7,'Verified By(Name, Division)',0,0,'L');
+
+
+    $pdf->Output();
+}
+elseif ($type ==='medical_renewal') {
+
+    $pdf=new FPDF();
+    $pdf->AddPage('L');
+    
+    $pdf->SetFont('Arial','',12);
+
+    // Header
+    $pdf->cell(30,30,$pdf->Image($image1, $pdf->GetX()+2, $pdf->GetY()+2, 25),1,0);
+    $pdf->cell(244,15,'Evaluation of Medical Device Dossiers (Renewal)',1,2,'C');
+    $pdf->cell(61,7.5,'Document Number',1,0);
+    $pdf->cell(61,7.5,'Effective Date',1,0);
+    $pdf->cell(61,7.5,'Review Date',1,0);
+    $pdf->cell(61,7.5,'Version No.',1,1);
+    $pdf->SetX(40);
+    $pdf->cell(61,7.5,'DRA-F-D1-01-12',1,0);
+    $pdf->cell(61,7.5,'27-09-2022',1,0);
+    $pdf->cell(61,7.5,'27-09-2024',1,0);
+    $pdf->cell(61,7.5,'00',1,0);
+
+    // Information
+
+    // Registration Detail
+    $pdf->Ln('15');
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,10,'Evaluation of Medical Device Dossiers (Renewal)',1,2,'C');
+    $pdf->SetFont('Arial','',12);
+    $pdf->cell(274,10,'Dossier ID: '.$data['Dossier_ID'],1,1,'L');
+    $pdf->cell(274,10,'Generic Name: '.$data['Generic_name'],1,1,'L');
+    $pdf->cell(274,10,'Brand Name: '.$data['Brand_name'],1,1,'L');
+    $pdf->cell(274,10,'Class: '.$data['Generic_name'],1,1,'L');
+    $pdf->cell(274,10,'Group: '.$data['Group_renewal'],1,1,'L');
+    $pdf->cell(274,10,'Name of the Applicant/Market Authorization Holder: '.$data['Name_Applicant_Market'],1,1,'L');
+    $pdf->cell(274,10,'Registration Number: '.$data['Registration_Number'],1,1,'L');
+    $pdf->cell(274,10,'Contact Details: '.$data['Contact_Details'],1,1,'L');
+    $pdf->cell(274,10,'Name of the Manufacturer: '.$data['Name_Manufacturer'],1,1,'L');
+    $pdf->cell(274,10,'Receipt Number with date: '.$data['Receipt_Number'],1,1,'L');
+    $pdf->cell(274,10,'Application date: '.$data['date_fast'],1,1,'L');
+    $pdf->cell(274,10,'Email Address: '.$data['Email'],1,1,'L');
+
+
+    $pdf->AddPage('L');
+    // Part A
+    // Administrative Documents
+    $pdf->Ln('10');
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,10,'Administrative Documents',1,2,'C');
+    $pdf->SetFont('Arial','',12);
+    $pdf->Ln('5');
+    // select1
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,8,'Dully filled Application form, Letter of Authorization from the manufacturer, Declaration of Conformity',1,1,'L');
+    $pdf->SetFont('Arial','',12);
+    $pdf->Multicell(274,8,$data['Letter_of_Authorization'],1,1);
+    $pdf->Ln('5');
+    // select2
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,8,'Declaration Letter from the company stating that there is no change in all aspects of the registered product.',1,1,'L');
+    $pdf->SetFont('Arial','',12);
+    $pdf->Multicell(274,8,$data['Declaration_Letter'],1,1);
+    $pdf->Ln('5');
+    // select3
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,8,'Copy of Initial Registration Certificate',1,1,'L');
+    $pdf->SetFont('Arial','',12);
+    $pdf->Multicell(274,8,$data['Initial_Registration'],1,1);
+    $pdf->Ln('5');
+    // select4
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,8,'Specimen of package, label and insert where applicable(Compare with the specimen submitted during the initial registration)',1,1,'L');
+    $pdf->SetFont('Arial','',12);
+    $pdf->Multicell(274,8,$data['Specimen_package'],1,1);
+
+    $pdf->AddPage('L');
+
+    // Part C
+    $pdf->Ln('5');
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,10,'Recommendations from the Evaluator',0,1,'C');
+    $pdf->SetFont('Arial','',12);
+    $pdf->Ln('5');
+
+    // Certificate of Analysis of API and Excipients:
+    $pdf->Ln('5');
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,10,'Recommended for issuance of registration certificate',1,2,'L');
+    $pdf->SetFont('Arial','',12);
+    $pdf->MultiCell(274, 6,$data['Recommended_issuance'], 1, 1);
+    $pdf->Ln('5');
+
+    // Certificate of Analysis of API and Excipients:
+    $pdf->Ln('5');
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,10,'Missing Document as stated below',1,2,'L');
+    $pdf->SetFont('Arial','',12);
+    $pdf->MultiCell(274, 6,$data['Missing_document'], 1, 1);
+
+    $pdf->AddPage('L');
+
+    $pdf->Ln('10');
+    $pdf->SetFont('Arial','B',12);
+    $pdf->cell(274,10,'Signature',1,2,'C');
+    $pdf->SetFont('Arial','',12);
+    // Signature
+    $pdf->Ln('40');
+    $pdf->cell(200,7,'Assessed By (Name, Division)',0,0,'L');
+    $pdf->cell(70,7,'Verified By(Name, Division)',0,0,'L');
+
+
+    $pdf->Output();
+}
 
 ?>

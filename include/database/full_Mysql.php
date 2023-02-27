@@ -45,7 +45,7 @@ if ($conn->query($sql) === TRUE) {
     'Please, click button to continue!',
     'success'
   ).then(function() {
-    window.location = '../table.php';
+    window.location = '../full_table.php';
   });
   </script>";
 } else {
