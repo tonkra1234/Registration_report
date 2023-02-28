@@ -109,7 +109,7 @@ $_SESSION['user_name'] = $user_name;
                                 <li><a class="dropdown-item" href="../post_table.php">Post approval</a></li>
                                 <li><a class="dropdown-item" href="../medical_full_table.php">Full medical device</a></li>
                                 <li><a class="dropdown-item" href="../medical_abr_table.php">ABR medical device</a></li>
-                                <li><a class="dropdown-item" href="../medical_evaluation_table.php">Evaluation medical device</a></li>
+                                <li><a class="dropdown-item" href="../medical_evaluation_table.php">Renewal medical device</a></li>
                             </ul>
                         </li>
                         <li class="nav-item mx-1">

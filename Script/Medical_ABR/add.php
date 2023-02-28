@@ -22,7 +22,7 @@ if (isset($_POST['submit']))
     <div class="col-sm p-3 min-vh-100">
         <div class="container mt-5">
             <h2 class="text-center my-3 bg-gradient rounded-pill p-2 border border-3"
-                style="background-color: #CBCFFF ;">Evaluation of Medical Device Dossiers (Abridged)</h2>
+                style="background-color: #8BFFCF ;">Evaluation of Medical Device Dossiers (Abridged)</h2>
             <form class="" method="POST">
                 <div class="card">
                     <div class="card-body">

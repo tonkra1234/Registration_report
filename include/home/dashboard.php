@@ -112,4 +112,56 @@ $result_post_health = mysqli_query ($conn, $sql_post_health);
 $data_post_health = $result_post_health->fetch_assoc();
 
 
+// Medical full query 
+$sql_medical_full = "SELECT count(*) as number FROM medical_full";
+$result_medical_full = mysqli_query ($conn, $sql_medical_full);
+$data_medical_full = $result_medical_full->fetch_assoc();
+
+$sql_medical_full_a = "SELECT count(*) as number FROM medical_full WHERE Show_status = 'Approve' ";
+$result_medical_full_a = mysqli_query ($conn, $sql_medical_full_a);
+$data_medical_full_a = $result_medical_full_a->fetch_assoc();
+
+$sql_medical_full_r = "SELECT count(*) as number FROM medical_full WHERE Show_status = 'Reject'";
+$result_medical_full_r = mysqli_query ($conn, $sql_medical_full_r);
+$data_medical_full_r = $result_medical_full_r->fetch_assoc();
+
+$sql_medical_full_q = "SELECT count(*) as number FROM medical_full WHERE Show_status = 'Query'";
+$result_medical_full_q = mysqli_query ($conn, $sql_medical_full_q );
+$data_medical_full_q = $result_medical_full_q->fetch_assoc();
+
+// Medical ABR query 
+$sql_medical_abr = "SELECT count(*) as number FROM medical_abr";
+$result_medical_abr = mysqli_query ($conn, $sql_medical_abr);
+$data_medical_abr = $result_medical_abr->fetch_assoc();
+
+$sql_medical_abr_a = "SELECT count(*) as number FROM medical_abr WHERE Show_status = 'Approve' ";
+$result_medical_abr_a = mysqli_query ($conn, $sql_medical_abr_a);
+$data_medical_abr_a = $result_medical_abr_a->fetch_assoc();
+
+$sql_medical_abr_r = "SELECT count(*) as number FROM medical_abr WHERE Show_status = 'Reject'";
+$result_medical_abr_r = mysqli_query ($conn, $sql_medical_abr_r);
+$data_medical_abr_r = $result_medical_abr_r->fetch_assoc();
+
+$sql_medical_abr_q = "SELECT count(*) as number FROM medical_abr WHERE Show_status = 'Query'";
+$result_medical_abr_q = mysqli_query ($conn, $sql_medical_abr_q );
+$data_medical_abr_q = $result_medical_abr_q->fetch_assoc();
+
+// Medical renewal query 
+$sql_medical_renewal = "SELECT count(*) as number FROM medical_renewal";
+$result_medical_renewal = mysqli_query ($conn, $sql_medical_renewal);
+$data_medical_renewal = $result_medical_renewal->fetch_assoc();
+
+$sql_medical_renewal_a = "SELECT count(*) as number FROM medical_renewal WHERE Show_status = 'Approve' ";
+$result_medical_renewal_a = mysqli_query ($conn, $sql_medical_renewal_a);
+$data_medical_renewal_a = $result_medical_renewal_a->fetch_assoc();
+
+$sql_medical_renewal_r = "SELECT count(*) as number FROM medical_renewal WHERE Show_status = 'Reject'";
+$result_medical_renewal_r = mysqli_query ($conn, $sql_medical_renewal_r);
+$data_medical_renewal_r = $result_medical_renewal_r->fetch_assoc();
+
+$sql_medical_renewal_q = "SELECT count(*) as number FROM medical_renewal WHERE Show_status = 'Query'";
+$result_medical_renewal_q = mysqli_query ($conn, $sql_medical_renewal_q );
+$data_medical_renewal_q = $result_medical_renewal_q->fetch_assoc();
+
+
 ?>

@@ -992,7 +992,6 @@ elseif ($type ==='medical_renewal') {
     $pdf->cell(200,7,'Assessed By (Name, Division)',0,0,'L');
     $pdf->cell(70,7,'Verified By(Name, Division)',0,0,'L');
 
-
     $pdf->Output();
 }
 

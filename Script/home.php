@@ -27,7 +27,7 @@ require '../include/layout/header.php';
                 <div class="col-12 mb-3">
                     <h4>Total reports</h4>
                 </div>
-                <div class="col-4 mb-3">
+                <div class="col-lg-4 col-12 mb-3">
                     <div class="card">
                         <div class="card-body row">
                             <div class="col-9">
@@ -244,6 +244,96 @@ require '../include/layout/header.php';
                                         <p><?php echo $data_post_health['number']?></p>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 mb-3">
+                    <div class="card">
+                        <div class="card-body row">
+                            <div class="col-9">
+                                <div class="d-flex flex-column">
+                                    <span class="badge text-dark fs-6" style="background-color: #CBCFFF;">Medical full assessment</span>
+                                    <div class="d-flex justify-content-center mt-3">
+                                        <div class="text-center bg-light rounded me-1 px-3 pt-2">
+                                            <i class="fa-solid fa-check-to-slot fs-3"></i>
+                                            <p><?php echo $data_medical_full_a['number'];?></p>
+                                        </div>
+                                        <div class="text-center bg-light rounded mx-1 px-3 pt-2">
+                                            <i class="fa-solid fa-square-xmark fs-3"></i>
+                                            <p><?php echo $data_medical_full_r['number'];?></p>
+                                        </div>
+                                        <div class="text-center bg-light rounded mx-1 px-3 pt-2">
+                                            <i class="fa-solid fa-pen fs-3"></i>
+                                            <p><?php echo $data_medical_full_q['number'];?></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3 border border-3 d-flex align-items-center justify-content-center">
+                                <p class="fw-bold px-1" style="font-size:4.5rem ;color:#8288d1;">
+                                    <?php echo $data_medical_full['number'];?>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 mb-3">
+                    <div class="card">
+                        <div class="card-body row">
+                            <div class="col-9">
+                                <div class="d-flex flex-column">
+                                    <span class="badge text-dark fs-6" style="background-color: #8BFFCF;">Medical ABR assessment</span>
+                                    <div class="d-flex justify-content-center mt-3">
+                                        <div class="text-center bg-light rounded me-1 px-3 pt-2">
+                                            <i class="fa-solid fa-check-to-slot fs-3"></i>
+                                            <p><?php echo $data_medical_abr_a['number'];?></p>
+                                        </div>
+                                        <div class="text-center bg-light rounded mx-1 px-3 pt-2">
+                                            <i class="fa-solid fa-square-xmark fs-3"></i>
+                                            <p><?php echo $data_medical_abr_r['number'];?></p>
+                                        </div>
+                                        <div class="text-center bg-light rounded mx-1 px-3 pt-2">
+                                            <i class="fa-solid fa-pen fs-3"></i>
+                                            <p><?php echo $data_medical_abr_q['number'];?></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3 border border-3 d-flex align-items-center justify-content-center">
+                                <p class="fw-bold" style="font-size:4.5rem ;color:#38946e;">
+                                    <?php echo $data_medical_abr['number'];?>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 mb-3">
+                    <div class="card">
+                        <div class="card-body row">
+                            <div class="col-9">
+                                <div class="d-flex flex-column">
+                                    <span class="badge text-dark fs-6" style="background-color: #FB8BFF ;">Medical renewal assessment</span>
+                                    <div class="d-flex justify-content-center mt-3">
+                                        <div class="text-center bg-light rounded me-1 px-3 pt-2">
+                                            <i class="fa-solid fa-check-to-slot fs-3"></i>
+                                            <p><?php echo $data_medical_renewal_a['number'];?></p>
+                                        </div>
+                                        <div class="text-center bg-light rounded mx-1 px-3 pt-2">
+                                            <i class="fa-solid fa-square-xmark fs-3"></i>
+                                            <p><?php echo $data_medical_renewal_r['number'];?></p>
+                                        </div>
+                                        <div class="text-center bg-light rounded mx-1 px-3 pt-2">
+                                            <i class="fa-solid fa-pen fs-3"></i>
+                                            <p><?php echo $data_medical_renewal_q['number'];?></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3 border border-3 d-flex align-items-center justify-content-center">
+                                <p class="fw-bold" style="font-size:4.5rem ;color:#DC79DF ;">
+                                    <?php echo $data_medical_renewal['number'];?>
+                                </p>
                             </div>
                         </div>
                     </div>
