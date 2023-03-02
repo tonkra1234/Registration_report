@@ -10,6 +10,7 @@ $user_name = $_SESSION['user_name'];
 $_SESSION['user_name'] = $user_name;
 
 $month_year = (isset($_GET['month_year']))?$_GET['month_year']:'';
+$Status = (isset($_GET['Status']))?$_GET['Status']:'';
 $time  = strtotime($month_year);
 $year = date('Y',$time);
 $month = date('m',$time);
@@ -30,23 +31,44 @@ $previous_page = $page_no - 1;
 $next_page = $page_no + 1;
 $adjacents = "2";
 
-if ($month_year === '') {
-    $result_count = mysqli_query($conn,"SELECT COUNT(*) As total_records FROM `full_track`");
-    $total_records = mysqli_fetch_array($result_count);
-    $total_records = $total_records['total_records'];
-    $total_no_of_pages = ceil($total_records / $total_records_per_page);
-    $second_last = $total_no_of_pages - 1; 
 
-    $result_full = mysqli_query($conn,"SELECT * FROM `full_track` ORDER BY date_fast DESC LIMIT $offset, $total_records_per_page");
+if ($month_year === '') {
+    if ($Status === '') {
+        $result_count = mysqli_query($conn,"SELECT COUNT(*) As total_records FROM `full_track`");
+        $total_records = mysqli_fetch_array($result_count);
+        $total_records = $total_records['total_records'];
+        $total_no_of_pages = ceil($total_records / $total_records_per_page);
+        $second_last = $total_no_of_pages - 1; 
+
+        $result_full = mysqli_query($conn,"SELECT * FROM `full_track` ORDER BY date_fast DESC LIMIT $offset, $total_records_per_page");
+    }else{
+        $result_count = mysqli_query($conn,"SELECT COUNT(*) As total_records FROM `full_track` WHERE `Show_status` = '$Status' ");
+        $total_records = mysqli_fetch_array($result_count);
+        $total_records = $total_records['total_records'];
+        $total_no_of_pages = ceil($total_records / $total_records_per_page);
+        $second_last = $total_no_of_pages - 1; 
+
+        $result_full = mysqli_query($conn,"SELECT * FROM `full_track` WHERE `Show_status` = '$Status' ORDER BY date_fast DESC LIMIT $offset, $total_records_per_page");
+    }
 
 }else{
-    $result_count = mysqli_query($conn,"SELECT COUNT(*) As total_records FROM `full_track` WHERE MONTH(date_fast) = $month and Year(date_fast) = $year");
-    $total_records = mysqli_fetch_array($result_count);
-    $total_records = $total_records['total_records'];
-    $total_no_of_pages = ceil($total_records / $total_records_per_page);
-    $second_last = $total_no_of_pages - 1; 
+    if($Status === ''){
+        $result_count = mysqli_query($conn,"SELECT COUNT(*) As total_records FROM `full_track` WHERE MONTH(date_fast) = $month and Year(date_fast) = $year");
+        $total_records = mysqli_fetch_array($result_count);
+        $total_records = $total_records['total_records'];
+        $total_no_of_pages = ceil($total_records / $total_records_per_page);
+        $second_last = $total_no_of_pages - 1; 
 
-    $result_full = mysqli_query($conn,"SELECT * FROM `full_track` WHERE MONTH(date_fast) = $month and Year(date_fast) = $year ORDER BY date_fast DESC LIMIT $offset, $total_records_per_page");
+        $result_full = mysqli_query($conn,"SELECT * FROM `full_track` WHERE MONTH(date_fast) = $month and Year(date_fast) = $year ORDER BY date_fast DESC LIMIT $offset, $total_records_per_page");
+    }else{
+        $result_count = mysqli_query($conn,"SELECT COUNT(*) As total_records FROM `full_track` WHERE MONTH(date_fast) = $month and Year(date_fast) = $year AND `Show_status` = '$Status'");
+        $total_records = mysqli_fetch_array($result_count);
+        $total_records = $total_records['total_records'];
+        $total_no_of_pages = ceil($total_records / $total_records_per_page);
+        $second_last = $total_no_of_pages - 1; 
+
+        $result_full = mysqli_query($conn,"SELECT * FROM `full_track` WHERE MONTH(date_fast) = $month and Year(date_fast) = $year AND `Show_status` = '$Status' ORDER BY date_fast DESC LIMIT $offset, $total_records_per_page");
+    }
 }
 
 
@@ -63,9 +85,17 @@ require '../include/layout/header.php';
         <div class="container-fluid p-5">
             <form class="my-lg-3 my-2 shadow p-lg-3 p-2" action="" method="GET" accept-charset="utf-8">
                 <div class="row">
-                    <div class="col-sm-8 col-12">
+                    <div class="col-sm-4 col-12">
                         <input class="border w-100 form-control" type="month" name="month_year" placeholder="Search"
                             aria-label="Search" value="<?php echo $month_year; ?>">
+                    </div>
+                    <div class="col-sm-4 col-12">
+                        <select class="form-select" name="Status">
+                            <option value="<?php echo $Status; ?>"><?php echo $Status; ?></option>
+                            <option value="Approve">Approve</option>
+                            <option value="Query">Query</option>
+                            <option value="Reject">Reject</option>
+                        </select>
                     </div>
                     <div class="col-sm-2 col-12 d-grid">
                         <button class="btn btn-secondary btn-block" type="submit"
@@ -88,9 +118,9 @@ require '../include/layout/header.php';
                             <tr class="table-info">
                                 <th scope="col">No.</th>
                                 <th scope="col">Dossier ID</th>
-                                <th scope="col">Assessor's Name</th>
-                                <th scope="col">Date of Assessment</th>
-                                <th scope="col">Qualification</th>
+                                <th scope="col">Generic name</th>
+                                <th scope="col">Brand name</th>
+                                <th scope="col">Summary assessment</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Details</th>
                                 <th scope="col">Report</th>
@@ -105,9 +135,9 @@ require '../include/layout/header.php';
                             <tr>
                                 <th scope="row"><?php echo $i;?></th>
                                 <td><?php echo $row_full["Dossier_ID"]; ?></td>
-                                <td><?php echo $row_full["Assesso_Name"]; ?></td>
-                                <td><?php echo $row_full["date_fast"]; ?></td>
-                                <td><?php echo $row_full["Qualification"]; ?></td>
+                                <td><?php echo $row_full["Generic_Name"]; ?></td>
+                                <td><?php echo $row_full["Brand_Name"]; ?></td>
+                                <td><?php echo $row_full["Summary_Assessment_Report"]; ?></td>
                                 <td class="text-center align-middle">
                                     <?php if(((array_key_exists("Show_status",$row_full)) ? $row_full["Show_status"] : "" ) === "Approve") : ?>
                                     <span class="badge bg-success"><?php echo $row_full["Show_status"] ?></span></td>
