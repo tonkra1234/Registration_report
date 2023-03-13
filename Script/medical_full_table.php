@@ -14,6 +14,7 @@ $Status = (isset($_GET['Status']))?$_GET['Status']:'';
 $time  = strtotime($month_year);
 $year = date('Y',$time);
 $month = date('m',$time);
+$search_key = (isset($_GET['search']))?$_GET['search']:'';
 
 // variable to store number of rows per page
 $total_records_per_page = 10;
@@ -31,8 +32,17 @@ $previous_page = $page_no - 1;
 $next_page = $page_no + 1;
 $adjacents = "2";
 
+if(!empty($search_key)){
+    $result_count = mysqli_query($conn,"SELECT COUNT(*) As total_records FROM `medical_full` WHERE CONCAT(Dossier_ID,Generic_Name,Brand_Name) LIKE '%$search_key%'");
+    $total_records = mysqli_fetch_array($result_count);
+    $total_records = $total_records['total_records'];
+    $total_no_of_pages = ceil($total_records / $total_records_per_page);
+    $second_last = $total_no_of_pages - 1; 
 
-if ($month_year === '') {
+    $result_medical_full = mysqli_query($conn,"SELECT * FROM `medical_full` WHERE CONCAT(Dossier_ID,Generic_Name,Brand_Name) LIKE '%$search_key%' ORDER BY date_fast DESC LIMIT $offset, $total_records_per_page");    
+}
+else{
+    if ($month_year === '') {
     if ($Status === '') {
         $result_count = mysqli_query($conn,"SELECT COUNT(*) As total_records FROM `medical_full`");
         $total_records = mysqli_fetch_array($result_count);
@@ -70,6 +80,9 @@ if ($month_year === '') {
         $result_medical_full = mysqli_query($conn,"SELECT * FROM `medical_full` WHERE MONTH(date_fast) = $month and Year(date_fast) = $year AND `Show_status` = '$Status' ORDER BY date_fast DESC LIMIT $offset, $total_records_per_page");
     }
 }
+}
+
+
 
 $i = ($total_records_per_page*$page_no)-($total_records_per_page-1);
 
@@ -83,11 +96,15 @@ require '../include/layout/header.php';
         <div class="container-fluid p-5">
             <form class="my-lg-3 my-2 shadow p-lg-3 p-2" action="" method="GET" accept-charset="utf-8">
                 <div class="row">
-                    <div class="col-sm-4 col-12">
+                    <div class="col-sm-3 col-12">
+                        <input class="border w-100 form-control" type="search" name="search" placeholder="Search"
+                            aria-label="Search" value="<?php echo $search_key; ?>">
+                    </div>
+                    <div class="col-sm-3 col-12">
                         <input class="border w-100 form-control" type="month" name="month_year" placeholder="Search"
                             aria-label="Search" value="<?php echo $month_year; ?>">
                     </div>
-                    <div class="col-sm-4 col-12">
+                    <div class="col-sm-2 col-12">
                         <select class="form-select" name="Status">
                             <option value="<?php echo $Status; ?>"><?php echo $Status; ?></option>
                             <option value="Approve">Approve</option>
@@ -138,7 +155,8 @@ require '../include/layout/header.php';
                                 <td><?php echo $row_medical_full["Missing_document"]; ?></td>
                                 <td class="text-center align-middle">
                                     <?php if(((array_key_exists("Show_status",$row_medical_full)) ? $row_medical_full["Show_status"] : "" ) === "Approve") : ?>
-                                    <span class="badge bg-success"><?php echo $row_medical_full["Show_status"] ?></span></td>
+                                    <span class="badge bg-success"><?php echo $row_medical_full["Show_status"] ?></span>
+                                </td>
                                 <?php elseif(((array_key_exists("Show_status",$row_medical_full)) ? $row_medical_full["Show_status"] : "" ) === "Reject") : ?>
                                 <span class="badge bg-danger"><?php echo $row_medical_full["Show_status"] ?></span></td>
                                 <?php else : ?>

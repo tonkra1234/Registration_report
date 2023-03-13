@@ -120,6 +120,7 @@ $all_users_status = mysqli_query ($conn, $query_status);
                         <th scope="col">Name</th>
                         <th scope="col">Email</th>
                         <th scope="col">Role</th>
+                        <th scope="col">Change</th>
                         <th scope="col">Status</th>
                      </tr>
                   </thead>
@@ -133,6 +134,10 @@ $all_users_status = mysqli_query ($conn, $query_status);
                         <td><?php echo $status["username"]; ?></td>
                         <td><?php echo $status["email"]; ?></td>
                         <td><?php echo $status["user_type"]; ?></td>
+                        <td><button type="button" class="btn btn-warning" data-bs-toggle="modal"
+                           data-bs-target="#changeModal<?php echo $status['id'];?>">
+                           Change
+                        </button></td>
                         <td class="text-center align-middle">
                            <?php if(((array_key_exists("status_u",$status)) ? $status["status_u"] : "" ) === "Active") : ?>
                            <span class="badge bg-success"><?php echo $status["status_u"]; ?></span></td>
@@ -145,6 +150,7 @@ $all_users_status = mysqli_query ($conn, $query_status);
                         <?php endif; ?></td>
                         
                         <?php
+                        include './change_password.php';
                      $No++;
                   }
                   ?>
